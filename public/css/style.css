@@ -1,0 +1,57 @@
+            body {
+                font-family: Arial;
+                background-color:  #f4f4f4;
+                margin: 100x; /*separa los parrafos*/
+            }
+        .container {
+            background: white;
+            padding: 100px; /*separa los bloques*/
+            border-radius: 10px;
+            max-width: 1920px;
+            text-align: center;
+        }
+        h1 {
+            color: #1E90FF;
+            font-size: 50px;
+        }
+        p {
+        line-height: 1.6;
+
+        }
+        button{
+            background-color: #1E90FF;
+            border: none;
+        }
+        .btn {
+            background-color: #1E90FF;
+            color: white;
+            padding: 10px 10px; /*define el tamaño del bloque*/
+            text-decoration: none; /*quita el subrayado automatico del link*/
+            border-radius: 10px; /* redondea el borde del bloque*/
+        }
+        .cabecera {
+            background-color: rgb(36, 36, 36);
+            color: white;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            position: sticky;
+            top: 0;
+            width: 97%;
+        }
+        .navbar{
+            background-color: #01b4fb;
+            padding: 7px
+            
+        }
+        .navbar a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+   
