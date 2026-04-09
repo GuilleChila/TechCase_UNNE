@@ -10,10 +10,6 @@
             max-width: 1920px;
             text-align: center;
         }
-        h1 {
-            color: #1E90FF;
-            font-size: 50px;
-        }
         p {
         line-height: 1.6;
 
@@ -30,18 +26,19 @@
             border-radius: 10px; /* redondea el borde del bloque*/
         }
         .cabecera {
-            background-color: rgb(36, 36, 36);
-            color: white;
+            background-color: #2e3f65;
+            color: #f9edb9;
             margin: 0;
             padding: 20px;
-            text-align: center;
+            text-align: left;
             border-radius: 10px;
             position: sticky;
             top: 0;
             width: 97%;
         }
         .navbar{
-            background-color: #01b4fb;
+            background-color: #374C79;
+            color: white;
             padding: 7px
             
         }
