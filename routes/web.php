@@ -17,3 +17,11 @@ Route::get('/principal', function (){
 Route::get('/contacto', function (){
     return view('contacto');
 })->name('contacto');
+
+Route::post('/login', function () {
+    return "Login OK";
+})->name('login');
+
+Route::post('/register', function () {
+    return "Registro OK";
+})->name('register');

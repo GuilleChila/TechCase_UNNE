@@ -11,12 +11,12 @@
             </div>
 
             <!-- Botón login -->
-            <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#loginModal">
+            <button class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#loginModal">
                 Iniciar sesión
             </button>
         </div>
         <div class="d-flex justify-content-end mt-3">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light px-3 rounded">
+            <nav class="navbar navbar-expand-lg navbar-light px-3 rounded">
   <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
