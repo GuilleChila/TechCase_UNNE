@@ -19,6 +19,9 @@
             border-radius: 10px; /* redondea el borde del bloque*/
         }
         .cabecera {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            font-weight: 500;
+            font-size: large;
             background-color: #2e3f65;
             color: #f9edb9;
             margin: 0;
@@ -26,5 +29,21 @@
             text-align: left;
             position: sticky;
             top: 0;
+            z-index: 1000;
+        }
+        .cabecera a {
+            color: #f9edb9;
+            font-weight: 700;
+        text-decoration: none;
+        }
+
+        .cabecera a:hover {
+    color: #002130;
+        }
+        .cabecera .navbar {
+            background-color: transparent;
+        }
+        .cabecera .dropdown-menu {
+            background-color: #2e3f65;
         }
    
