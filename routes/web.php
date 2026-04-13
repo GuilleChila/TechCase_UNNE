@@ -7,9 +7,13 @@ Route::get('/', function () {
 });
 Route:: get('/sobre-nosotros', function () {
     return view('sobre-nosotros');
-});
+})->name('sobre-nosotros');
 /*generar un redireccionamiento al controlador*/
 /*Route::get('inicio', [PruebaController::class, 'index']);*/
 Route::get('/principal', function (){
     return view('principal');
-});
+})->name('principal');
+
+Route::get('/contacto', function (){
+    return view('contacto');
+})->name('contacto');

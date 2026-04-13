@@ -1,18 +1,5 @@
-<!DOCTYPE html>
-<html lang = "es">
-    <head>
-        <title>TechCase</title>
-        <link rel="stylesheet" href="/css/style.css">
-    </head>
-    <body>
-        <div class="cabecera">
-            <h1>TechCase</h1>
-            <h2>Fundas y Accesorios para Celulares</h2>
-            <nav class="navbar">
-            <a href="/principal">principal</a>
-            <a href="/sobre-nosotros">Sobre Nosotros</a>
-            </nav>
-        </div>
+@extends('plantillas.app')
+@section('content')
         <div class="container">
                 <h2> Sobre Nosotros</h2>
                 <h3><b>¿Qué hacemos?</b></h3>
@@ -26,7 +13,5 @@
                 </a>
                 </p>
         </div>
-    </body>
-</html>
-
+@endsection
 

@@ -3,13 +3,6 @@
                 background-color:  #f4f4f4;
                 margin: 100x; /*separa los parrafos*/
             }
-        .container {
-            background: white;
-            padding: 100px; /*separa los bloques*/
-            border-radius: 10px;
-            max-width: 1920px;
-            text-align: center;
-        }
         p {
         line-height: 1.6;
 
@@ -29,26 +22,9 @@
             background-color: #2e3f65;
             color: #f9edb9;
             margin: 0;
-            padding: 20px;
+            padding: 2px;
             text-align: left;
-            border-radius: 10px;
             position: sticky;
             top: 0;
-            width: 97%;
-        }
-        .navbar{
-            background-color: #374C79;
-            color: white;
-            padding: 7px
-            
-        }
-        .navbar a {
-            color: rgb(0, 0, 0);
-            text-decoration: none;
-            margin-right: 15px;
-            font-weight: bold;
-        }
-        .navbar a:hover {
-            text-decoration: underline;
         }
    
