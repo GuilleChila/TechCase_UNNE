@@ -3,9 +3,9 @@
 
         <!-- Parte superior -->
         <div class="d-flex justify-content-between align-items-center">
-            
             <!-- Logo / título -->
             <div>
+              <img src="{{ asset('img/logo techcase web.png') }}" alt="logo" class="logo">
                 <h1>TechCase</h1>
                 <small>Fundas y Accesorios para Celulares</small>
             </div>
