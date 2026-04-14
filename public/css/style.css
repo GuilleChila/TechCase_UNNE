@@ -46,4 +46,9 @@
         .cabecera .dropdown-menu {
             background-color: #2e3f65;
         }
+        .cabecera .logo{
+            width: 150px;
+            height: auto;
+            background-color: red;
+        }
    
