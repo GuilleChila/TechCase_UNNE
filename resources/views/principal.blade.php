@@ -26,5 +26,7 @@
     <span class="visually-hidden">Next</span>
   </button>
     </div>
-    
+    <section>
+
+    </section>
 @endsection
