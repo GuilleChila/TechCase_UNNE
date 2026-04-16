@@ -19,36 +19,52 @@
             border-radius: 10px; /* redondea el borde del bloque*/
         }
         .cabecera {
+            height: 150px;
+            display: flex;
+            align-items: flex-start;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
             font-weight: 500;
             font-size: large;
             background-color: #2e3f65;
             color: #f9edb9;
             margin: 0;
-            padding: 2px;
+            padding: 0px;
             text-align: left;
             position: sticky;
             top: 0;
             z-index: 1000;
         }
+        .cabecera .container-fluid{
+            height: 100%;
+        }
+        .cabecera .top-bar{
+            height: 70%; 
+        }
+        .cabecera .bottom-bar {
+             height: 30%;
+            align-items: center;
+        }
         .cabecera a {
             color: #f9edb9;
             font-weight: 700;
-        text-decoration: none;
+            text-decoration: none;
         }
 
         .cabecera a:hover {
-    color: #002130;
+            color: #002130;
         }
         .cabecera .navbar {
+            padding-top: 0px;
             background-color: transparent;
+            position: static;
         }
         .cabecera .dropdown-menu {
             background-color: #2e3f65;
         }
         .cabecera .logo{
-            width: 150px;
-            height: auto;
-            background-color: red;
+            height: 100%;
+            width: 165px;
+            margin-top: -20px;
+            background-color: transparent;
         }
    

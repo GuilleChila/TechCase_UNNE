@@ -1,13 +1,11 @@
 <header class="cabecera">
-    <div class="container-fluid">
+    <div class="container-fluid d-flex flex-column h-100">
 
         <!-- Parte superior -->
-        <div class="d-flex justify-content-between align-items-center">
+        <div class="top-bar d-flex justify-content-between align-items-start">
             <!-- Logo / título -->
             <div>
-              <img src="{{ asset('img/logo techcase web.png') }}" alt="logo" class="logo">
-                <h1>TechCase</h1>
-                <small>Fundas y Accesorios para Celulares</small>
+              <img src="{{ asset('img/logo_transparent.png') }}" alt="logo" class="logo">
             </div>
 
             <!-- Botón login -->
@@ -15,7 +13,7 @@
                 Iniciar sesión
             </button>
         </div>
-        <div class="d-flex justify-content-end mt-3">
+        <div class="bottom-bar d-flex justify-content-end">
             <nav class="navbar navbar-expand-lg navbar-light px-3 rounded">
   <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
