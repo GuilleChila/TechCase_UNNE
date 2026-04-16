@@ -1,7 +1,7 @@
 @extends('plantillas.app')
 @section('content')
 <h1>Preguntas Frecuentes</h1>
-<div class="accordion accordion-flush" id="accordionFlushExample">
+<div class="accordion accordion-flush mt-4" id="accordionFlushExample">
   <div class="accordion-item">
     <h2 class="accordion-header">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
@@ -92,10 +92,18 @@ No podemos cambiar productos dañados por caídas, rayones o mal uso.
     </button>
     </h2>
     <div id="flush-collapseeight" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">ella me llama y no se que hacer  </div>
+      <div class="accordion-body p-0">ella me llama y no se que hacer  </div>
   </div>
 </div>
 
-<h2> Te quedo alguna duda? </h2>
-<p> nos podes escribir al correo ...., o tambien al numero ...</p>
+<div class="card mt-4" style="width: 69rem;">
+  <div class="card-body">
+    <h2 class="card-title mt-5">Te quedo alguna duda?</h2>
+    <p>dejanos saber tus dudas 👉
+     <a href="https://techcase_unne.test/contacto" target="_blank" class="">
+     <b>contacto</b>
+</a>
+</p>
+  </div>
+</div>
 @endsection
