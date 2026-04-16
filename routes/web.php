@@ -25,3 +25,7 @@ Route::post('/login', function () {
 Route::post('/register', function () {
     return "Registro OK";
 })->name('register');
+
+Route::get('/preguntas-frecuentes', function(){
+    return view('preguntas-frecuentes');
+})->name('preguntas frecuentes');

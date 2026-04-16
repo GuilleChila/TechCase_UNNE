@@ -4,7 +4,11 @@
 
       <div class="col-md-3">
         <h4>¿Necesitás ayuda?</h4>
-        <h5>contáctanos vía Mail</h5>
+        <ul class="list-unstyled">
+          <li><a href="{{ route('preguntas frecuentes') }}" class="text-white text-decoration-none">Preguntas Frecuentes</a></li>
+          <li><a href="{{ route('contacto') }}" class="text-white text-decoration-none">Contacto</a></li>
+        </ul>
+        <h5>o contáctanos vía Mail</h5>
         <p class="mb-1">guillerausch614@gmail.com</p>
         <p>matidegre24@gmail.com</p>
       </div>

@@ -30,7 +30,7 @@
           <a class="nav-link" href="{{ route('sobre-nosotros') }}">Sobre Nosotros</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('contacto') }}">contacto</a>
+          <a class="nav-link" href="{{ route('preguntas frecuentes') }}">Preguntas Frecuentes</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
