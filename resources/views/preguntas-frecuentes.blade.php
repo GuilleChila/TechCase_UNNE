@@ -100,7 +100,7 @@ No podemos cambiar productos dañados por caídas, rayones o mal uso.
   <div class="card-body">
     <h2 class="card-title mt-5">Te quedo alguna duda?</h2>
     <p>dejanos saber tus dudas 👉
-     <a href="https://techcase_unne.test/contacto" target="_blank" class="">
+     <a href="https://techcase_unne.test/contacto" class="">
      <b>contacto</b>
 </a>
 </p>
