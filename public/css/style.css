@@ -162,3 +162,21 @@ textarea {
     transform: translateY(1px);
 }
     
+.bienvenida{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    background-color: #0d2c70ea;
+    color: #f9edb9;
+    text-align: center;
+    padding: 15px;
+    font-weight: 600;
+    font-size: large;
+    border-radius: 10px;
+}
+.bienvenida h1 {
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.907);
+    margin-bottom: 0;
+}
+.bienvenida p{
+    margin-top: 10px;
+}
