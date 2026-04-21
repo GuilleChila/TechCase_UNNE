@@ -29,3 +29,7 @@ Route::post('/register', function () {
 Route::get('/preguntas-frecuentes', function(){
     return view('preguntas-frecuentes');
 })->name('preguntas frecuentes');
+
+Route::get('/catalogo', function(){
+    return view('catalogo');
+})->name('catalogo');

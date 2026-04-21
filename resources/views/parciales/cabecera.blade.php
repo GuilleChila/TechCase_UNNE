@@ -25,10 +25,10 @@
           <a class="nav-link" href="{{ route('principal') }}">Principal</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('sobre-nosotros') }}">Sobre Nosotros</a>
+          <a class="nav-link" href="{{ route('catalogo') }}">Productos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('preguntas frecuentes') }}">Preguntas Frecuentes</a>
+          <a class="nav-link" href="{{ route('sobre-nosotros') }}">Sobre Nosotros</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
