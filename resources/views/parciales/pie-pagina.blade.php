@@ -16,7 +16,7 @@
       <div class="col-md-3">
         <h4>Enlaces de utilidad</h4>
         <ul class="list-unstyled">
-          <li> <a href="#" class="text-white text-decoration-none">Sobre Nosotros</a></li>
+          <li> <a href="{{ route('sobre-nosotros') }}" class="text-white text-decoration-none">Sobre Nosotros</a></li>
           <li><a href="#" class="text-white text-decoration-none">Términos y Condiciones</a></li>
         </ul>
       </div>

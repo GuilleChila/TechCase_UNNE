@@ -1,5 +1,39 @@
 @extends('plantillas.app')
 @section('content')
+<section>
+  <div class= "bienvenida container">
+      <h1>Bienvenido a <b>TechCase</b></h1>
+      <p>En nuestra tienda, transformamos tu iPhone en un reflejo de tu personalidad. Te ofrecemos una selección exclusiva de fundas, cargadores y comecables diseñados no solo para proteger y potenciar tu dispositivo, sino para que cada detalle hable de ti. Dale a tu teléfono ese toque único y personalízalo exactamente a tu gusto con nuestros accesorios.</p>
+  </div>
+</section>
+<section class= "container">
+  <div id="carouselExampleIndicators" class="carousel slide">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{{ asset('img/paso1 techcase.png') }}" class="d-block w-100" alt="..." style= "max-height: 300px">
+    </div>
+    <div class="carousel-item">
+      <img src="{{ asset('img/paso2 techcase.png') }}" class="d-block w-100" alt="..." style= "max-height: 300px">
+    </div>
+    <div class="carousel-item">
+      <img src="{{ asset('img/paso3 techcase.png') }}" class="d-block w-100" alt="..." style= "max-height: 300px">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+</section>
     <div class="container-md">
         <h2>Tendencias: </h2>
         <div id="carouselExampleFade" class="carousel slide carousel-fade">
@@ -29,7 +63,7 @@
     <section class="container mt-5">
       <h2>Conocé las categorias de nuestros <b>productos</b></h2>
       <div class="row">
-          <div class="col-md-3">
+          <div class="col-md-4">
             <div class="card" style="width: 18rem;">
               <img src="{{ asset('img/tarjeta_funda.jpg') }}" class="card-img-top" alt="...">
               <div class="card-body">
@@ -39,7 +73,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-4">
             <div class="card" style="width: 18rem;">
               <img src="{{ asset('img/tarjeta_cargadores.jpg') }}" class="card-img-top" alt="...">
               <div class="card-body">
@@ -49,7 +83,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-4">
             <div class="card" style="width: 18rem;">
               <img src="{{ asset('img/tarjeta_comecable.jpg') }}" class="card-img-top" alt="...">
               <div class="card-body">

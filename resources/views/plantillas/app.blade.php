@@ -9,7 +9,7 @@
 </head>
 <body>
     @include('parciales.cabecera')
-    <main class="container my-4">
+    <main class="my-4">
     @yield('content')
     </main>
     @include('parciales.pie-pagina')
