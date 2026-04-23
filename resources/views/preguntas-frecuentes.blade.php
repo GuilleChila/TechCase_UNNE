@@ -5,7 +5,7 @@
   <div class="accordion-item">
     <h2 class="accordion-header">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-        Como se que modelo de iphone tengo?
+        ¿Como sé que modelo de iphone tengo?
       </button>
     </h2>
     <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
@@ -15,7 +15,7 @@
   <div class="accordion-item">
     <h2 class="accordion-header">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-        Como compro online?
+        ¿Cómo compro online?
     </button>
     </h2>
     <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
@@ -24,7 +24,7 @@
   <div class="accordion-item">
     <h2 class="accordion-header">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-        Hacen envios a todo el pais?
+        ¿Hacen envíos a todo el país?
     </button>
     </h2>
     <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
@@ -37,7 +37,7 @@ Cadetería local (sólo para corrientes)</div>
 <div class="accordion-item">
     <h2 class="accordion-header">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsefour" aria-expanded="false" aria-controls="flush-collapsefour">
-        Que metodos de pagos aceptan?
+        ¿Qué métodos de pagos aceptan?
     </button>
     </h2>
     <div id="flush-collapsefour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
@@ -50,7 +50,7 @@ Cadetería local (sólo para corrientes)</div>
   <div class="accordion-item">
     <h2 class="accordion-header">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsefive" aria-expanded="false" aria-controls="flush-collapsefive">
-        Cuanto demora el envio?
+        ¿Cuánto demora el envío?
     </button>
     </h2>
     <div id="flush-collapsefive" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
@@ -59,7 +59,7 @@ Cadetería local (sólo para corrientes)</div>
    <div class="accordion-item">
     <h2 class="accordion-header">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsesix" aria-expanded="false" aria-controls="flush-collapsesix">
-        Quien puede recibir mi pedido?
+        ¿Quien puede recibir mi pedido?
     </button>
     </h2>
     <div id="flush-collapsesix" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
@@ -70,7 +70,7 @@ Cadetería local (sólo para corrientes)</div>
    <div class="accordion-item">
     <h2 class="accordion-header">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseseven" aria-expanded="false" aria-controls="flush-collapseseven">
-        Queres cambiar o devolver tu pedido?
+        ¿Queres cambiar o devolver tu pedido?
     </button>
     </h2>
     <div id="flush-collapseseven" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
@@ -88,7 +88,7 @@ No podemos cambiar productos dañados por caídas, rayones o mal uso.
    <div class="accordion-item">
     <h2 class="accordion-header">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseeight" aria-expanded="false" aria-controls="flush-collapseeight">
-        Que pasa si el producto llega dañado o no es el correcto?
+        ¿Que pasa si el producto llega dañado o no es el correcto?
     </button>
     </h2>
     <div id="flush-collapseeight" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
@@ -98,7 +98,7 @@ No podemos cambiar productos dañados por caídas, rayones o mal uso.
 
 <div class="card mt-4" style="width: 69rem;">
   <div class="card-body">
-    <h2 class="card-title mt-5">Te quedo alguna duda?</h2>
+    <h2 class="card-title mt-5">¿Te quedo alguna duda?</h2>
     <p>dejanos saber tus dudas 👉
      <a href="/contacto" class="">
      <b>contacto</b>

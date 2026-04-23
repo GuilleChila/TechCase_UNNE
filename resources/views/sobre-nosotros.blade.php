@@ -1,5 +1,6 @@
 @extends('plantillas.app')
 @section('content')
+<section  class="form-nosotros" >
         <div class="container">
                 <h2> Sobre Nosotros</h2>
                 <h3><b>¿Qué hacemos?</b></h3>
@@ -13,5 +14,6 @@
                 </a>
                 </p>
         </div>
+</seccion>
 @endsection
 

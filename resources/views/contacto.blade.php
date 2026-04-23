@@ -1,9 +1,13 @@
 @extends('plantillas.app')
 @section('content')
-<H1>CONTACTO</H1>
+<div class= "titulo-contacto">
+    <h2>Formulario de Contacto</h2>
+</div>
+<section  class="form-contacto" >
+
 <div class="form-container">
     <form action="/enviar-contacto" method="POST">
-        
+        @csrf
         <div class="form-group">
             <label for="nombre">Nombre completo</label>
             <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
@@ -39,4 +43,6 @@
         
     </form>
 </div>
+
+</section>
 @endsection

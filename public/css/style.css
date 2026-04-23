@@ -73,41 +73,41 @@
     display: flex;
     justify-content: center;
     padding: 50px 20px;
-    background-color: #f4f7f6; 
+    background-color: #fff; 
+    border-radius: 20px;
 }
 
 .form-container {
     width: 100%;
-    max-width: 600px;
+    max-width: 600px; /*ancho del formato*/
     background: #fff;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+    border-radius: 7px;
+    box-shadow: 0 8px 30px rgba(19, 4, 4, 0.05);
 }
 
 /* Título (H1) */
-h1 {
+  .titulo-contacto {
     text-align: center;
-    color: #2d3436;
-    font-family: 'Inter', sans-serif;
-    margin-bottom: 30px;
+    color: hsla(228, 79%, 7%, 0.678);
+     font-family: gliker;
     font-weight: 700;
 }
 
 /* Grupos de formulario */
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 20px; /*separacion de de las celdas*/
     display: flex;
     flex-direction: column;
 }
 
-label {
+.form-contacto .label {
     font-size: 14px;
     font-weight: 600;
     color: #636e72;
     margin-bottom: 8px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    
 }
 
 /* Estilo para Inputs, Select y Textarea */
@@ -115,25 +115,25 @@ input[type="text"],
 input[type="email"],
 input[type="tel"],
 select,
-textarea {
-    padding: 12px 15px;
-    border: 1px solid #dfe6e9;
-    border-radius: 8px;
+.form-contacto .textarea {
+    padding: 10px 25px;
+    border: 1px solid #90abe46e; /*marco de las celdas*/
+    border-radius: 50px;
     font-size: 16px;
-    color: #2d3436;
+    color: #362d2d;
     background-color: #fafafa;
     transition: all 0.3s ease;
 }
 
-input:focus, select:focus, textarea:focus {
+.form-contacto .input:focus, select:focus, textarea:focus {
     outline: none;
     border-color: #0984e3; 
     background-color: #fff;
-    box-shadow: 0 0 0 4px rgba(9, 132, 227, 0.1);
+    box-shadow: 0 0 0 4px rgba(6, 85, 146, 0.1);
 }
 
 /* Textarea específico */
-textarea {
+.form-contacto .textarea {
     resize: none; /* Evita que el usuario deforme el diseño */
     min-height: 120px;
 }
@@ -141,24 +141,24 @@ textarea {
 /* Botón de envío */
 .btn-submit {
     width: 100%;
-    padding: 15px;
-    background-color: #0984e3;
-    color: white;
+    padding: 13px;
+    background-color: #2e3f65;
+    color: rgb(207, 200, 200);
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     font-size: 16px;
     font-weight: 700;
     cursor: pointer;
     transition: background 0.3s shadow 0.3s;
-    margin-top: 10px;
+    margin-top: 0px;
 }
 
-.btn-submit:hover {
+.form-contacto .btn-submit:hover {
     background-color: #074b83;
     box-shadow: 0 4px 12px rgba(9, 132, 227, 0.3);
 }
 
-.btn-submit:active {
+.form-contacto .btn-submit:active {
     transform: translateY(1px);
 }
     
