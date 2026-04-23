@@ -181,3 +181,64 @@ textarea {
 .bienvenida p{
     margin-top: 10px;
 }
+.instagram-section {
+    margin-bottom: 50px;
+    padding: 20px;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.insta-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 25px;
+}
+.insta-subtitle {
+  font-weight: bold;
+  margin: 0;
+  font-size: 1rem;
+}
+
+.insta-user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.1rem;
+}
+
+.seguinos-link {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.insta-grid {
+  display: grid;
+  /* Crea 6 columnas iguales */
+  grid-template-columns: repeat(6, 1fr); 
+  gap: 10px;
+}
+
+.insta-item img {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Hace que la imagen sea siempre cuadrada */
+  object-fit: cover;   /* Evita que la imagen se deforme */
+  border-radius: 4px;  /* Un toque sutil de redondeo */
+  transition: transform 0.3s ease-in-out;
+  will-change: transform;
+}
+
+.insta-item:hover img {
+  opacity: 0.8; /* Efecto visual al pasar el mouse */
+  transform: scale(1.05);
+}
+
+/* Ajuste para celulares */
+@media (max-width: 768px) {
+  .insta-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en móvil */
+  }
+}

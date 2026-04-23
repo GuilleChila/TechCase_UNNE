@@ -5,7 +5,10 @@
         <div class="top-bar d-flex justify-content-between align-items-start">
             <!-- Logo / título -->
             <div>
+              <a 
+              href="{{ route('principal') }}">
               <img src="{{ asset('img/logo_transparent.png') }}" alt="logo" class="logo">
+              </a>
             </div>
 
             <!-- Botón login -->

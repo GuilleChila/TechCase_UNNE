@@ -34,6 +34,37 @@
   </button>
 </div>
 </section>
+
+<section class="instagram-section container-sm">
+  <div class="insta-header">
+    <h2>¡Siguenos en Instagram!</h2>
+    <p class="insta-subtitle">Para ver nuestras publicaciones destacadas</p>
+    </div>
+    <div class="insta-user">
+      <i class="fab fa-instagram"></i>
+       <a href="https://www.instagram.com/tech.case__?igsh=ZG1iNTlva2M0ZGFv" target="_blank" class="seguinos-link"><strong>TechCase__</strong></a>
+  </div>
+
+  <div class="insta-grid">
+    <a href="https://www.instagram.com/p/DIFEBqWPL5l/?hl=es-la" target="_blank" class="insta-item">
+      <img src="{{ asset('img/postIG1.png') }}" alt="Funda para teléfono">
+    </a>
+    
+    <a href="https://www.instagram.com/p/DIFEGauPQJ1/?hl=es-la" target="_blank" class="insta-item">
+      <img src="{{ asset('img/postIG2.png') }}" alt="Funda para teléfono">
+    </a>
+
+    <a href="https://www.instagram.com/p/DIFEITSPfdt/?hl=es-la" target="_blank" class="insta-item">
+      <img src="{{ asset('img/postIG3.png') }}" alt="Funda para teléfono">
+    </a>
+
+    <a href="https://www.instagram.com/p/DJqFeVcuFXZ/?hl=es-la" target="_blank" class="insta-item">
+      <img src="{{ asset('img/postIG4.png') }}" alt="Funda para teléfono">
+    </a>
+
+    </div>
+</section>
+
     <div class="container-md">
         <h2>Tendencias: </h2>
         <div id="carouselExampleFade" class="carousel slide carousel-fade">
@@ -67,7 +98,7 @@
             <div class="card" style="width: 18rem;">
               <img src="{{ asset('img/tarjeta_funda.jpg') }}" class="card-img-top" alt="...">
               <div class="card-body">
-                <h5 class="card-title">Fundas</h5>
+                <h5 class="card-title"><b>Fundas</b></h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
                 <a href="#" class="btn btn-primary">Go somewhere</a>
               </div>
@@ -77,7 +108,7 @@
             <div class="card" style="width: 18rem;">
               <img src="{{ asset('img/tarjeta_cargadores.jpg') }}" class="card-img-top" alt="...">
               <div class="card-body">
-                <h5 class="card-title">Cargadores</h5>
+                <h5 class="card-title"><b>Cargadores</b></h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
                 <a href="#" class="btn btn-primary">Go somewhere</a>
               </div>
@@ -87,7 +118,7 @@
             <div class="card" style="width: 18rem;">
               <img src="{{ asset('img/tarjeta_comecable.jpg') }}" class="card-img-top" alt="...">
               <div class="card-body">
-                <h5 class="card-title">ComeCables</h5>
+                <h5 class="card-title"><b>ComeCables</b></h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
                 <a href="#" class="btn btn-primary">Go somewhere</a>
               </div>
