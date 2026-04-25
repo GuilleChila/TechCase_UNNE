@@ -34,6 +34,8 @@ Route::get('/catalogo', function(){
     return view('catalogo');
 })->name('catalogo');
 
-route :: get('/catalogo-cargadores', function(){
+/*route :: get('/catalogo-cargadores', function(){
       return view('catalogo-cargadores');
-})->name('catalogo-cargadores');
+})->name('catalogo-cargadores');*/
+Route::get('/catalogo-cargadores', [catalogoCargadoresController::class, 'index'])->name('catalogo-cargadores');
+>>>>>>> main

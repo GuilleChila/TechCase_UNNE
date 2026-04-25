@@ -50,6 +50,6 @@ class catalogoCargadoresController extends Controller
         ];
 
         // Enviamos el array a la vista usando compact()
-        return view('productos.index', compact('fundas'));
+        return view('/catalogo-cargadores', compact('cargadores'));
     }
 }
