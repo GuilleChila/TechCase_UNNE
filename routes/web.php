@@ -33,3 +33,7 @@ Route::get('/preguntas-frecuentes', function(){
 Route::get('/catalogo', function(){
     return view('catalogo');
 })->name('catalogo');
+
+route :: get('/catalogo-cargadores', function(){
+      return view('catalogo-cargadores');
+})->name('catalogo-cargadores');
