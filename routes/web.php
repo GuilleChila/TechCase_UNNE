@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CatalogoFundasController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -33,3 +34,9 @@ Route::get('/preguntas-frecuentes', function(){
 Route::get('/catalogo', function(){
     return view('catalogo');
 })->name('catalogo');
+
+/*Route::get('/catalogo-fundas', function(){
+    return view('catalogo-fundas');
+})->name('catalogo-fundas');*/
+
+Route::get('/catalogo-fundas', [catalogoFundasController::class, 'index'])->name('catalogo-fundas');

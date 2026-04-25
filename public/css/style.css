@@ -235,6 +235,10 @@ select,
   opacity: 0.8; /* Efecto visual al pasar el mouse */
   transform: scale(1.05);
 }
+.contenedor{
+    width: 70%;
+    vertical-align: auto;
+}
 
 /* Ajuste para celulares */
 @media (max-width: 768px) {
