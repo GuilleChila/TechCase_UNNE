@@ -35,6 +35,10 @@ Route::get('/catalogo', function(){
     return view('catalogo');
 })->name('catalogo');
 
+/*route :: get('/catalogo-cargadores', function(){
+      return view('catalogo-cargadores');
+})->name('catalogo-cargadores');*/
+Route::get('/catalogo-cargadores', [catalogoCargadoresController::class, 'index'])->name('catalogo-cargadores');
 /*Route::get('/catalogo-fundas', function(){
     return view('catalogo-fundas');
 })->name('catalogo-fundas');*/
