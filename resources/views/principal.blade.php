@@ -1,7 +1,7 @@
 @extends('plantillas.app')
 @section('content')
 <section>
-  <div class= "bienvenida container">
+  <div class= "bienvenida contenedor">
       <h1>Bienvenido a <b>TechCase</b></h1>
       <p>En nuestra tienda, transformamos tu iPhone en un reflejo de tu personalidad. Te ofrecemos una selección exclusiva de fundas, cargadores y comecables diseñados no solo para proteger y potenciar tu dispositivo, sino para que cada detalle hable de ti. Dale a tu teléfono ese toque único y personalízalo exactamente a tu gusto con nuestros accesorios.</p>
   </div>
@@ -100,7 +100,7 @@
               <div class="card-body">
                 <h5 class="card-title"><b>Fundas</b></h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="{{ route('catalogo-fundas') }}" class="btn btn-primary">Ver catalogo</a>
               </div>
             </div>
           </div>
