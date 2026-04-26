@@ -19,30 +19,80 @@
             border-radius: 10px; /* redondea el borde del bloque*/
         }
         .cabecera {
-            height: 150px;
+            min-height: 150px;
+            height: auto;
             display: flex;
-            align-items: flex-start;
+            flex-direction: column;
+            align-items: stretch;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
             font-weight: 500;
             font-size: large;
             background-color: #2e3f65;
             color: #f9edb9;
             margin: 0;
-            padding: 0px;
+            padding: 10px 20px;
             text-align: left;
             position: sticky;
             top: 0;
             z-index: 1000;
         }
-        .cabecera .container-fluid{
+        .cabecera-grid {
+            display: grid;
+            grid-template-columns: 200px 1fr auto; /* Logo (fijo), Buscador (flexible), Derecha (ajustado) */
+            grid-template-rows: 1fr; /* Una sola fila principal */
+            gap: 20px;
+            height: 100%;
+            align-items: center; /* Centra verticalmente logo y buscador */
+        } 
+        .area-logo {
+            display: flex;
+            align-items: center;
             height: 100%;
         }
+        .area-busqueda {
+            display: flex;
+            justify-content: center;
+        }
+        .search-container {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+        }
+        .area-derecha {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Separa el botón al techo y la nav al suelo */
+            height: 100%;
+            text-align: right;
+            align-items: flex-end; /* Alinea todo a la derecha */
+        }
+        .boton-login {
+            margin-top: 5px;
+        }
+        .cabecera .nav-link {
+            color: #f9edb9 !important;
+            padding: 5px 10px !important;
+            font-size: 0.95rem;
+        }
+        .search-input {
+            width: 100%;
+            border-radius: 25px;
+            padding: 10px 45px 10px 20px;
+            border: none;
+            outline: none;
+        }     
+        .cabecera .container-fluid{
+            height: auto;
+        }
         .cabecera .top-bar{
-            height: 70%; 
+            height: auto;
+            margin-bottom: 10px; 
         }
         .cabecera .bottom-bar {
-             height: 30%;
-            align-items: center;
+             height: auto;
+             display: flex;
+             justify-content: flex-end;
+             align-items: center;
         }
         .cabecera a {
             color: #f9edb9;
@@ -56,16 +106,18 @@
         .cabecera .navbar {
             padding-top: 0px;
             background-color: transparent;
-            position: static;
         }
         .cabecera .dropdown-menu {
             background-color: #2e3f65;
         }
         .cabecera .logo{
-            height: 100%;
-            width: 165px;
-            margin-top: -20px;
+            height: 150px;      /* Cambiado de 100% a auto para mantener proporción */
+            max-height: 150px;  /* Le damos un tamaño máximo razonable */
+            width: auto;       /* Cambiado de 165px para que no se estire horizontalmente */
+            margin-top: -20px;     /* Quitamos el margen negativo que podía estar solapando cosas */
+            object-fit: contain;
             background-color: transparent;
+            
         }
     
       /* Contenedor principal */
@@ -163,6 +215,10 @@ select,
 }
     
 .bienvenida{
+    width: 90%;          /* Ancho responsivo para celulares */
+    max-width: 1200px;    /* Ancho máximo para que no se estire de más en PC */
+    margin-left: auto;   /* Empuja desde la izquierda */
+    margin-right: auto;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
     background-color: #0d2c70ea;
     color: #f9edb9;
@@ -240,6 +296,155 @@ select,
     vertical-align: auto;
 }
 
+.categoria-card-moderna {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden; /* IMPORTANTE: Corta el zoom de la imagen */
+    height: 500px;    /* Define una altura fija para que todas sean iguales */
+    border: 2px solid #00ffff;
+    box-shadow: 
+        0 0 5px #00ffff,      /* Primer resplandor, muy cercano */
+        0 0 15px #00ffff,     /* Segundo resplandor, más amplio y suave */
+        inset 0 0 10px rgba(0, 255, 255, 0.4); /* Resplandor interno sutil */
+    border-radius: 12px; /* Mantén el mismo valor que ya tenías */
+    overflow: hidden; /* Esto es vital para el efecto de zoom interno */
+}
+
+/* El contenedor de la imagen */
+.contenedor-img {
+    width: 100%;
+    height: 100%;
+}
+
+.contenedor-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease; /* Controla la velocidad del zoom */
+}
+
+/* El efecto de zoom al pasar el mouse */
+.categoria-card-moderna:hover .contenedor-img img {
+    transform: scale(1.15); /* Acerca la imagen sin agrandar la tarjeta */
+}
+
+/* Sombreado para que el texto blanco siempre se lea bien */
+.card-img-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);
+    transition: background 0.3s ease;
+}
+
+.categoria-card-moderna:hover .card-img-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
+}
+
+.product-card {
+    background: #fff;
+    border: 1px solid #000; /* Borde negro fino como la imagen */
+    border-radius: 15px;
+    padding: 15px;
+    text-align: left;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+
+/* Efecto opcional para que se sienta viva al pasar el mouse */
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-image-container {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.product-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.product-model {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.product-price {
+    font-size: 1.3rem;
+    font-weight: 700; /* Negrita destacada */
+    margin-bottom: 2px;
+}
+
+.product-installments {
+    font-size: 0.85rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* El Botón "Comprar" */
+.btn-buy {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    border: 1.5px solid #000;
+    border-radius: 25px; /* Botón bien redondeado */
+    text-align: center;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-buy:hover {
+    background-color: #2f17a8c2;
+    color: #e7f086;
+}
+
+.search-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px; /* Ajusta el ancho según tu diseño */
+    margin: 20px auto;
+}
+
+.search-input {
+    width: 100%;
+    background-color: #1a1a1a; /* Fondo oscuro */
+    border: 1px solid #444;    /* Borde gris sutil */
+    border-radius: 12px;       /* Bordes redondeados */
+    padding: 12px 45px 12px 20px; /* Espacio extra a la derecha para la lupa */
+    color: #888;               /* Color del texto y placeholder */
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+/* Cambio de color al hacer clic */
+.search-input:focus {
+    border-color: #00ffff; /* Puedes usar tu azul neón aquí para que combine */
+    color: #fff;
+}
+
+.search-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #ff3300; /* El color rojo/naranja de tu captura */
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.search-icon:hover {
+    transform: translateY(-50%) scale(1.1);
+}
 /* Ajuste para celulares */
 @media (max-width: 768px) {
   .insta-grid {

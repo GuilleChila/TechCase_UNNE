@@ -1,51 +1,42 @@
 <header class="cabecera">
-    <div class="container-fluid d-flex flex-column h-100">
-
-        <!-- Parte superior -->
-        <div class="top-bar d-flex justify-content-between align-items-start">
-            <!-- Logo / título -->
-            <div>
-              <a 
-              href="{{ route('principal') }}">
-              <img src="{{ asset('img/logo_transparent.png') }}" alt="logo" class="logo">
-              </a>
-            </div>
-
-            <!-- Botón login -->
-            <button class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#loginModal">
-                Iniciar sesión
-            </button>
+    <div class="container-fluid cabecera-grid">
+        
+        <div class="area-logo">
+            <a href="{{ route('principal') }}">
+                <img src="{{ asset('img/logo_transparent.png') }}" alt="logo" class="logo">
+            </a>
         </div>
-        <div class="bottom-bar d-flex justify-content-end">
-            <nav class="navbar navbar-expand-lg navbar-light px-3 rounded">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="{{ route('principal') }}">Principal</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ route('catalogo') }}">Productos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ route('sobre-nosotros') }}">Sobre Nosotros</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown link
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-      </ul>
+
+        <div class="area-busqueda">
+            <form action="#" method="GET" class="search-container">
+                <input type="text" name="query" placeholder="Buscar productos" class="search-input">
+                <button type="submit" class="search-icon">
+                    <i class="bi bi-search"></i> 
+                </button>
+            </form>
+        </div>
+
+        <div class="area-derecha">
+            <div class="boton-login">
+                <button class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#loginModal">
+                    Iniciar sesión
+                </button>
+            </div>
+            
+            <nav class="navbar navbar-expand-lg p-0">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="{{ route('principal') }}">Principal</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('catalogo') }}">Productos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('sobre-nosotros') }}">Sobre Nosotros</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Categorías</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Fundas</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
     </div>
-  </div>
-</div>
-</nav>
 </header>
