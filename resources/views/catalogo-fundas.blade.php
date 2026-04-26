@@ -15,7 +15,7 @@
                 </div>
 
                 <div class="product-action">
-                    <a href="#" class="btn-buy">Comprar</a>
+                    <a href="{{ route('detalle-funda', ['id' => $funda['id']]) }}" class="btn-buy">Comprar</a>
                 </div>
             </div>
         </div>

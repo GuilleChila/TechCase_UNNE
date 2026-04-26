@@ -43,6 +43,8 @@ Route::get('/catalogo', function(){
 
 Route::get('/catalogo-fundas', [catalogoFundasController::class, 'index'])->name('catalogo-fundas');
 
+Route::get('/producto/{id}', [CatalogoFundasController::class, 'show'])->name('detalle-funda');
+
 /*route :: get('/catalogo-cargadores', function(){
       return view('catalogo-cargadores');
 })->name('catalogo-cargadores');*/
