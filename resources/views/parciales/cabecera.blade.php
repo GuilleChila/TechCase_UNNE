@@ -31,7 +31,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Categorías</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Fundas</a></li>
+                            <li><a class="dropdown-item" href="{{ route('catalogo-fundas') }}">Fundas</a></li>
                         </ul>
                     </li>
                 </ul>

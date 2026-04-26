@@ -19,7 +19,7 @@
                 <h1 class="product-title">{{ $funda['modelo'] }}</h1>
                 
                 <div class="product-price">
-                    ${{ number_format($funda['precio'], 3, '.', '.') }}
+                   ${{ number_format($funda['precio'], 0, ',', '.') }}
                 </div>
 
                 <div class="design-section">
