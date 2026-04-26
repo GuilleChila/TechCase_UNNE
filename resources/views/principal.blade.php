@@ -94,36 +94,44 @@
     <section class="container mt-5">
       <h2>Conocé las categorias de nuestros <b>productos</b></h2>
       <div class="row">
-          <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-              <img src="{{ asset('img/tarjeta_funda.jpg') }}" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title"><b>Fundas</b></h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-                <a href="{{ route('catalogo-fundas') }}" class="btn btn-primary">Ver catalogo</a>
-              </div>
+
+      <div class="col-md-4 mb-4">
+        <a href="{{ route('catalogo-fundas') }}" class="text-decoration-none">
+          <div class="card categoria-card-moderna"> 
+            <div class="contenedor-img">
+            <img src="{{ asset('img/tarjeta_funda.jpg') }}" class="img-fluida" alt="Fundas">
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-              <img src="{{ asset('img/tarjeta_cargadores.jpg') }}" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title"><b>Cargadores</b></h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-                <a href="{{ route('catalogo-cargadores') }}" class="btn btn-primary">Go somewhere</a>
-              </div>
+            <div class="card-img-overlay d-flex align-items-end justify-content-center">
+                <h5 class="card-title text-white"><b>Fundas</b></h5>
             </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <a href="{{ route('catalogo-cargadores') }}" class="text-decoration-none">
+        <div class="card categoria-card-moderna"> 
+          <div class="contenedor-img">
+            <img src="{{ asset('img/tarjeta_cargadores.jpg') }}" class="img-fluida" alt="Fundas">
           </div>
-          <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-              <img src="{{ asset('img/tarjeta_comecable.jpg') }}" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title"><b>ComeCables</b></h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </div>
+          <div class="card-img-overlay d-flex align-items-end justify-content-center">
+                <h5 class="card-title text-white"><b>Cargadores</b></h5>
         </div>
-    </section>
+        </a>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <a href="{{ route('catalogo-cargadores') }}" class="text-decoration-none">
+        <div class="card categoria-card-moderna"> 
+          <div class="contenedor-img">
+            <img src="{{ asset('img/tarjeta_comecable.jpg') }}" class="img-fluida" alt="Fundas">
+          </div>
+          <div class="card-img-overlay d-flex align-items-end justify-content-center">
+                <h5 class="card-title text-white"><b>ComeCables</b></h5>
+        </div>
+        </a>
+      </div>
+    </div>
+</section>
 @endsection

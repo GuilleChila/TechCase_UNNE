@@ -20,7 +20,7 @@ class catalogoFundasController extends Controller
             ],
             [
                 "id" => 2,
-                "modelo" => "Iphone 13",
+                "modelo" => "iPhone 13",
                 "descripcion" => "Funda silicone case Colores: marron, verde oscuro, marron claro",
                 "precio" => 6000,
                 "imagen" => "funda_silicona_13.jpeg",
@@ -28,7 +28,7 @@ class catalogoFundasController extends Controller
             ],
             [
                 "id" => 3,
-                "modelo" => "Iphone 14",
+                "modelo" => "iPhone 14",
                 "descripcion" => "Funda Silicone Case Colores: azul, gris, negro",
                 "precio" => 6000,
                 "imagen" => "funda_silicona_14.jpeg",
@@ -36,7 +36,7 @@ class catalogoFundasController extends Controller
             ],
             [
                 "id" => 4,
-                "modelo" => "Iphone 14 Pro Max",
+                "modelo" => "iPhone 14 Pro Max",
                 "descripcion" => "Funda MagSafe Color: Violeta",
                 "precio" => 5500,
                 "imagen" => "funda_magsafe_14promax.jpeg",

@@ -4,22 +4,21 @@
 <h1>catalogo de <b>Fundas</b></h1>
     <div class="row">
         @foreach ($fundas as $funda)
-            <div class="col-md-4 mb-4">
-                <div class="card h-100">
-                    <img src="{{ asset('img/' . $funda['imagen']) }}" class="card-img-top" alt="{{ $funda['modelo'] }}">
-                    
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $funda['modelo'] }}</h5>
-                        <p class="text-muted small">{{ $funda['marca'] }}</p>
-                        <p class="card-text">{{ $funda['descripcion'] }}</p>
-                    </div>
-                    
-                    <div class="card-footer d-flex justify-content-between align-items-center">
-                        <span class="fw-bold text-primary">${{ number_format($funda['precio'], 2, ',', '.') }}</span>
-                        <a href="#" class="btn btn-outline-dark btn-sm">Ver más</a>
-                    </div>
+           <div class="col-6 col-md-4 col-lg-2 mb-4"> <div class="product-card">
+                <div class="product-image-container">
+                    <img src="{{ asset('img/' . $funda['imagen']) }}" alt="{{ $funda['modelo'] }}" class="product-img">
+                </div>
+
+                <div class="product-info">
+                    <h3 class="product-model">{{ $funda['modelo'] }}</h3>
+                    <p class="product-price">${{ number_format($funda['precio'], 0, ',', '.') }}</p>
+                </div>
+
+                <div class="product-action">
+                    <a href="#" class="btn-buy">Comprar</a>
                 </div>
             </div>
+        </div>
         @endforeach
     </div>
 </div>
