@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CatalogoFundasController;
+use App\Http\Controllers\catalogoCargadoresController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -44,3 +45,4 @@ Route::get('/catalogo-cargadores', [catalogoCargadoresController::class, 'index'
 })->name('catalogo-fundas');*/
 
 Route::get('/catalogo-fundas', [catalogoFundasController::class, 'index'])->name('catalogo-fundas');
+
