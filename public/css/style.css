@@ -451,3 +451,23 @@ select,
     grid-template-columns: repeat(2, 1fr); /* 2 columnas en móvil */
   }
 }
+
+
+
+
+
+/* Estilo para que el título coincida con el de contacto */
+.titulo-seccion {
+     color: hsla(228, 79%, 7%, 0.678);
+     font-family: gliker;
+    font-weight: 700;
+}
+
+/* Color de las flechas (azul oscuro) */
+.accordion-button::after {
+    filter: invert(18%) sepia(88%) saturate(2311%) hue-rotate(202deg) brightness(91%) contrast(104%);
+}
+
+.accordion-button:not(.collapsed)::after {
+    filter: invert(18%) sepia(88%) saturate(2311%) hue-rotate(202deg) brightness(91%) contrast(104%);
+}

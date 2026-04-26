@@ -1,109 +1,114 @@
 @extends('plantillas.app')
 @section('content')
-<h1>Preguntas Frecuentes</h1>
-<div class="accordion accordion-flush mt-4" id="accordionFlushExample">
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-        ¿Como sé que modelo de iphone tengo?
-      </button>
-    </h2>
-    <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">1.Entrá en Ajustes de tu celu. 2.Tocá la opción <stong>"General"</strong> y luego en <stong> "Informacion" </stong>.Ahí vas a encontrar el modelo exacto.
-💡 Es clave que selecciones bien el modelo, ya que algunos tienen variantes similares. Si tenés dudas, escribinos y te damos una mano. </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-        ¿Cómo compro online?
-    </button>
-    </h2>
-    <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">no lo se  </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-        ¿Hacen envíos a todo el país?
-    </button>
-    </h2>
-    <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">Sí! Enviamos a toda Argentina a través de:
+<div class="container mt-0">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10">
+            
+            <h2 class="text-center titulo-seccion">Preguntas Frecuentes</h2>
 
-Andreani (retiro en sucursal o envío a domicilio)
-Cadetería local (sólo para corrientes)</div>
-  </div>
+            <div class="accordion accordion-flush shadow-sm border rounded" id="accordionFlushExample">
+                
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f1">
+                            ¿Como sé que modelo de iphone tengo?
+                        </button>
+                    </h2>
+                    <div id="f1" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            1. Entrá en Ajustes de tu celu. <br>
+                            2. Tocá la opción <strong>"General"</strong> y luego en <strong>"Informacion"</strong>. Ahí vas a encontrar el modelo exacto.
+                        </div>
+                    </div>
+                </div>
 
-<div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsefour" aria-expanded="false" aria-controls="flush-collapsefour">
-        ¿Qué métodos de pagos aceptan?
-    </button>
-    </h2>
-    <div id="flush-collapsefour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">Podés pagar con:
-    1.Efectivo
-    2.Mercado Pago
-    3.Transferencia bancaria
-    🕐 Si elegís transferencia, tenés 5 días hábiles para realizar el pago y enviarnos el comprobante por mail. Después de ese plazo, el pedido se cancela automáticamente.   </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsefive" aria-expanded="false" aria-controls="flush-collapsefive">
-        ¿Cuánto demora el envío?
-    </button>
-    </h2>
-    <div id="flush-collapsefive" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">El envio puede demorar entre 2 a 5 dias habiles </div>
-  </div>
-   <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsesix" aria-expanded="false" aria-controls="flush-collapsesix">
-        ¿Quien puede recibir mi pedido?
-    </button>
-    </h2>
-    <div id="flush-collapsesix" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">
-        cadeteria local: Cualquier persona en el domicilio indicado.
-        Andriani: Presentando copia o foto del DNI del titular.   </div>
-  </div>
-   <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseseven" aria-expanded="false" aria-controls="flush-collapseseven">
-        ¿Queres cambiar o devolver tu pedido?
-    </button>
-    </h2>
-    <div id="flush-collapseseven" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">¡Podés hacerlo sin problema!
-Tenés 30 días de garantía desde que recibís tu producto. Si necesitás iniciar un cambio o devolución, escribinos a .....
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f2">
+                            ¿Cómo compro online?
+                        </button>
+                    </h2>
+                    <div id="f2" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">Seleccioná tus productos, cargalos al carrito y seguí los pasos de pago.</div>
+                    </div>
+                </div>
 
-📌 Recordá que:
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f3">
+                            ¿Hacen envíos a todo el país?
+                        </button>
+                    </h2>
+                    <div id="f3" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">¡Sí! Enviamos a toda Argentina vía Andreani y cadetería local en Corrientes y Resistencia.</div>
+                    </div>
+                </div>
 
-Las pequeñas diferencias de color, diseño o detalles mínimos no se consideran fallas.
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f4">
+                            ¿Qué métodos de pagos aceptan?
+                        </button>
+                    </h2>
+                    <div id="f4" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">Aceptamos: Efectivo, Mercado Pago y Transferencia bancaria.</div>
+                    </div>
+                </div>
 
-No podemos cambiar productos dañados por caídas, rayones o mal uso.
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f5">
+                            ¿Cuánto demora el envío?
+                        </button>
+                    </h2>
+                    <div id="f5" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">El envío puede demorar entre 2 a 5 días hábiles.</div>
+                    </div>
+                </div>
 
-  </div>
-  </div>
-   <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseeight" aria-expanded="false" aria-controls="flush-collapseeight">
-        ¿Que pasa si el producto llega dañado o no es el correcto?
-    </button>
-    </h2>
-    <div id="flush-collapseeight" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body p-0">ella me llama y no se que hacer  </div>
-  </div>
-</div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f6">
+                            ¿Quien puede recibir mi pedido?
+                        </button>
+                    </h2>
+                    <div id="f6" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">Cualquier persona en el domicilio para cadetería local, o el titular con DNI para Andreani.</div>
+                    </div>
+                </div>
 
-<div class="card mt-4" style="width: 69rem;">
-  <div class="card-body">
-    <h2 class="card-title mt-5">¿Te quedo alguna duda?</h2>
-    <p>dejanos saber tus dudas 👉
-     <a href="/contacto" class="">
-     <b>contacto</b>
-</a>
-</p>
-  </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f7">
+                            ¿Queres cambiar o devolver tu pedido?
+                        </button>
+                    </h2>
+                    <div id="f7" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">¡Podés hacerlo sin problema! Tenés 30 días de garantía desde que recibís tu producto.</div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f8">
+                            ¿Que pasa si el producto llega dañado o no es el correcto?
+                        </button>
+                    </h2>
+                    <div id="f8" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">Ella me llama y no se que hacer... pero vos escribinos y te lo solucionamos al toque.</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="card mt-5 text-center border-0 bg-light">
+                <div class="card-body">
+                    <h2 class="card-title">¿Te quedo alguna duda?</h2>
+                    <p class="card-text">dejanos saber tus dudas 👉 <a href="/contacto" class="fw-bold text-decoration-none">contacto</a></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </div>
 @endsection
