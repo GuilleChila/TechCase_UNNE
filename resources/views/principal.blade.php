@@ -64,7 +64,7 @@
     </div>
 
     <div class="col-md-4 mb-4">
-      <a href="{{ route('catalogo-cargadores') }}" class="text-decoration-none">
+      <a href="{{ route('catalogo-ComeCables') }}" class="text-decoration-none">
         <div class="card categoria-card-moderna"> 
           <div class="contenedor-img">
             <img src="{{ asset('img/tarjeta_comecable.jpg') }}" class="img-fluida" alt="Fundas">
