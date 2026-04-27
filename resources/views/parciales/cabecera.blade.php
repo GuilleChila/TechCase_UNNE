@@ -38,6 +38,7 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{ route('catalogo-fundas') }}">Fundas</a></li>
                         <li><a class="dropdown-item" href="{{ route('catalogo-cargadores') }}">Cargadores</a></li>
+                        <li><a class="dropdown-item" href="{{ route('catalogo-ComeCables') }}">ComeCables</a></li>
                     </ul>
                 </li>
                 <li class="nav-item d-flex align-items-center ms-lg-3">
