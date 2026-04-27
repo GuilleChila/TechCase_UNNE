@@ -19,16 +19,13 @@
         <div id="carouselExampleFade" class="carousel slide carousel-fade">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="{{ asset('img/promocion-1,carrusel.png') }}" class="d-block w-100" alt="..." style= "max-height: 350px">
+      <img src="{{ asset('img/promocion-1-carrusel.png') }}" class="d-block w-100" alt="..." style= "max-height: 350px">
     </div>
     <div class="carousel-item">
-      <img src="{{ asset('img/ej trendy 2.jpg') }}" class="d-block w-100" alt="..." style= "max-height: 350px">
+      <img src="{{ asset('img/promocion-2-carrusel.png') }}" class="d-block w-100" alt="..." style= "max-height: 350px">
     </div>
     <div class="carousel-item">
-      <img src="{{ asset('img/ej trendy 3.jpg') }}" class="d-block w-100" alt="..." style= "max-height: 350px">
-    </div>
-    <div class="carousel-item">
-      <img src="{{ asset('img/ej trendy 4.jpg') }}" class="d-block w-100" alt="..." style= "max-height: 350px">
+      <img src="{{ asset('img/promocion-3-carrusel.png') }}" class="d-block w-100" alt="..." style= "max-height: 350px">
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
@@ -48,7 +45,7 @@
         <a href="{{ route('catalogo-fundas') }}" class="text-decoration-none">
           <div class="card categoria-card-moderna"> 
             <div class="contenedor-img">
-            <img src="{{ asset('img/tarjeta_funda.jpg') }}" class="img-fluida" alt="Fundas">
+            <img src="{{ asset('img/portada.funda.jpg') }}" class="img-fluida" alt="Fundas">
             </div>
             <div class="card-img-overlay d-flex align-items-end justify-content-center">
                 <h5 class="card-title text-white"><b>Fundas</b></h5>
@@ -61,7 +58,7 @@
       <a href="{{ route('catalogo-cargadores') }}" class="text-decoration-none">
         <div class="card categoria-card-moderna"> 
           <div class="contenedor-img">
-            <img src="{{ asset('img/tarjeta_cargadores.jpg') }}" class="img-fluida" alt="Fundas">
+            <img src="{{ asset('img/portada-cargadores.png') }}" class="img-fluida" alt="Fundas">
           </div>
           <div class="card-img-overlay d-flex align-items-end justify-content-center">
                 <h5 class="card-title text-white"><b>Cargadores</b></h5>
@@ -74,7 +71,7 @@
       <a href="{{ route('catalogo-ComeCables') }}" class="text-decoration-none">
         <div class="card categoria-card-moderna"> 
           <div class="contenedor-img">
-            <img src="{{ asset('img/tarjeta_comecable.jpg') }}" class="img-fluida" alt="Fundas">
+            <img src="{{ asset('img/portada-comeCable.jpg') }}" class="img-fluida" alt="Fundas">
           </div>
           <div class="card-img-overlay d-flex align-items-end justify-content-center">
                 <h5 class="card-title text-white"><b>ComeCables</b></h5>
