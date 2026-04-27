@@ -40,17 +40,13 @@ Route::get('/terminos-condiciones', function(){
     return view('terminos-condiciones');
 })->name('terminos-condiciones');
 
-
-/*Route::get('/catalogo-fundas', function(){
-    return view('catalogo-fundas');
-})->name('catalogo-fundas');*/
+Route::get('/carrito', function(){
+    return view('carrito');
+})->name('carrito');
 
 Route::get('/catalogo-fundas', [catalogoFundasController::class, 'index'])->name('catalogo-fundas');
 
 Route::get('/producto/{id}', [CatalogoFundasController::class, 'show'])->name('detalle-funda');
 
-/*route :: get('/catalogo-cargadores', function(){
-      return view('catalogo-cargadores');
-})->name('catalogo-cargadores');*/
 Route::get('/catalogo-cargadores', [catalogoCargadoresController::class, 'index'])->name('catalogo-cargadores');
 

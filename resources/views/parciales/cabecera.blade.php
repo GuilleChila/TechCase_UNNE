@@ -40,6 +40,14 @@
                         <li><a class="dropdown-item" href="{{ route('catalogo-cargadores') }}">Cargadores</a></li>
                     </ul>
                 </li>
+                <li class="nav-item d-flex align-items-center ms-lg-3">
+                    <a class="nav-link position-relative" href="{{ route('carrito') }}">
+                      <i class="bi bi-cart3" style="font-size: 1.2rem; color: white;"></i>
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem;">
+                       1
+                      </span>
+                      </a>
+                  </li>
                 
                 <li class="nav-item"><a class="nav-link" href="{{ route('sobre-nosotros') }}">Somos TechCase</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('preguntas frecuentes') }}">Q&A</a></li>
