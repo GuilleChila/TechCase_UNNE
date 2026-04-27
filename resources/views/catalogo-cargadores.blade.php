@@ -7,7 +7,7 @@
             <div class="product-card">
                 <div class="product-image-container">
                     {{-- Usamos la clave 'imagen' de tu array --}}
-                    <img src="{{ asset('img/' . $cargador['imagen']) }}" alt="{{ $cargador['descripcion'] }}" class="product-img">
+                    <img src="{{ asset('img/' . $cargador['imagen']) }}" alt="{{ $cargador['imagen'] }}" class="product-img">
                 </div>
 
                 <div class="product-info">
