@@ -10,8 +10,9 @@
                 </div>
 
                 <div class="product-info">
-                    <h3 class="product-model">{{ $funda['modelo'] }}</h3>
-                    <h3 class="product-model">Precio</h3>
+                    <h3 class="product-model">{{ $funda['nombre'] }}</h3>
+                     <h4 class="product-model">{{ $funda['modelo'] }}</h4>
+                    <h5 class="product-model">Precio</h5>
                     <p class="product-price">${{ number_format($funda['precio'], 0, ',', '.') }}</p>
                 </div>
 

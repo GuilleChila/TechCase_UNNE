@@ -30,7 +30,7 @@ class catalogoCargadoresController extends controller
                 "id" => 3,
                 "descripcion" => "Cable USB-C a Lightning",
                 "precio" => 4900,
-                "imagen" => "funda-xiaomi.jpg",
+                "imagen" => "cable.C-lightning.png",
                 "marca" => "Apple"
             ],
             [
@@ -43,8 +43,15 @@ class catalogoCargadoresController extends controller
             [
                 "id" => 5,
                 "descripcion" => "Cable USB a USB-C",
-                "precio" => 2500,
-                "imagen" => "funda-xiaomi.jpg",
+                "precio" => 3500,
+                "imagen" => "cable.usb-c-usb.png",
+                "marca" => "Apple"
+            ],
+             [
+                "id" => 6,
+                "descripcion" => "Cable USB-c a USB-C",
+                "precio" => 4900,
+                "imagen" => "cable.usb-c.usb-c.png",
                 "marca" => "Apple"
             ]
         ];
