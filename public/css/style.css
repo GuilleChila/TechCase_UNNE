@@ -1,6 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
             body {
-                font-family: Arial;
-                background-color:  #f4f4f4;
+                /* 1. Definimos la fuente y alternativas por si falla internet */
+                font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    
+                /* 2. Suavizado de fuente (Truco de Apple para que se vea más nítida) */
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+    
+                /* 3. Color y tamaño base para no forzar la vista */
+                color: #1d1d1f; 
+                font-size: 16px;
+                line-height: 1.5; /* Espaciado entre líneas para que no sea un bloque denso */
+    
+                /* 4. Evitamos márgenes raros que rompan la cabecera */
+                margin: 0;
+                padding: 0;
+            }
+            button, input, select, textarea, optgroup {
+                font-family: inherit; /* Fuerza a usar Inter */
+                font-size: inherit;
+                line-height: inherit;
             }
         p {
         line-height: 1.6;
@@ -875,4 +894,149 @@ select,
 .btn-buy:hover {
     background-color: #2f17a8c2;
     color: #e7f086;
+}
+
+.about-container {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.main-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 50px;
+}
+
+/* Grid de tarjetas */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 60px;
+}
+
+.info-card {
+    padding: 40px 30px;
+    border: 1px solid #000; /* Identidad TechCase */
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-10px);
+}
+
+.info-card i {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 20px;
+    color: #1a202c;
+}
+
+.info-card h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+/* Bloques secundarios */
+.secondary-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    text-align: left;
+    background-color: #f5f5f7;
+    padding: 40px;
+    border-radius: 20px;
+}
+
+.text-block, .social-block {
+    flex: 1;
+    min-width: 300px;
+}
+
+.btn-instagram {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 25px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-instagram:hover {
+    background-color: #333;
+    color: #fff;
+}
+.seccion-bienvenida {
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.banner-techcase {
+    position: relative;
+    width: 100%;
+    max-width: 1100px;
+    background-color: #1a202c; /* El azul oscuro de tu marca */
+    border-radius: 20px;
+    padding: 60px 40px;
+    overflow: hidden;
+    border: 1px solid #000; /* Coherencia con el estilo TechCase */
+    
+    /* Variables iniciales para evitar saltos */
+    --x: 50%;
+    --y: 50%;
+}
+
+.espectro-luz {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        600px circle at var(--x) var(--y),
+        rgba(255, 255, 255, 0.08),
+        transparent 40%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.banner-techcase:hover .espectro-luz {
+    opacity: 1;
+}
+
+.contenido-banner {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    text-align: center;
+}
+
+.contenido-banner h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.contenido-banner p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 850px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.9);
 }

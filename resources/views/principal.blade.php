@@ -1,12 +1,19 @@
 @extends('plantillas.app')
 @section('content')
-<section>
-  <div class= "bienvenida contenedor">
-      <h1>Bienvenido a <b>TechCase</b></h1>
-      <p>En nuestra tienda, transformamos tu iPhone en un reflejo de tu personalidad. Te ofrecemos una selección exclusiva de fundas, cargadores y comecables diseñados no solo para proteger y potenciar tu dispositivo, sino para que cada detalle hable de ti. Dale a tu teléfono ese toque único y personalízalo exactamente a tu gusto con nuestros accesorios.</p>
-  </div>
+<section class="seccion-bienvenida">
+    <div class="banner-techcase" id="reactivo-banner">
+        <div class="espectro-luz"></div>
+        
+        <div class="contenido-banner">
+            <h1>Bienvenido a <b>TechCase</b></h1>
+            <p>
+                En nuestra tienda, transformamos tu iPhone en un reflejo de tu personalidad. 
+                Te ofrecemos una selección exclusiva de fundas, cargadores y comecables diseñados no solo para proteger 
+                y potenciar tu dispositivo, sino para que cada detalle hable de ti.
+            </p>
+        </div>
+    </div>
 </section>
-
     <div class="container-md">
         <h2>Tendencias: </h2>
         <div id="carouselExampleFade" class="carousel slide carousel-fade">
@@ -106,4 +113,20 @@
 
     </div>
 </section>
+<script>
+    const banner = document.getElementById('reactivo-banner');
+    
+    if (banner) {
+        banner.addEventListener('mousemove', (e) => {
+            const rect = banner.getBoundingClientRect();
+            // Calculamos la posición relativa al contenedor
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            // Actualizamos las variables CSS en tiempo real
+            banner.style.setProperty('--x', `${x}px`);
+            banner.style.setProperty('--y', `${y}px`);
+        });
+    }
+</script>
 @endsection
