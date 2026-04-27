@@ -10,26 +10,29 @@ class catalogoFundasController extends Controller
         private $fundas = [
             [
                 "id" => 1,
+                "nombre" => "Funda MagSafe",
                 "modelo" => "iPhone 15 Pro Max",
-                "descripcion" => "Funda MagSafe Color: Rosa.",
+                /*"descripcion" => "Funda MagSafe Color: Rosa.",*/
                 "precio" => 5500,
-                "imagen" => "tarjeta_funda.jpg",
+                "imagen" => "grupo-magsafe.jpeg",
                 "marca" => "Apple",
                 "disenos" => 3
             ],
             [
                 "id" => 2,
+                "nombre" => "Funda MagSafe",
                 "modelo" => "iPhone 13",
-                "descripcion" => "Funda silicone case Colores: marron, verde oscuro, marron claro",
+                /*"descripcion" => "Funda silicone case Colores: marron, verde oscuro, marron claro",*/
                 "precio" => 6000,
-                "imagen" => "funda_silicona_13.jpeg",
+                "imagen" => "grupo-magsafe.jpeg",
                 "marca" => "Apple",
                 "disenos" => 5
             ],
             [
                 "id" => 3,
+                "nombre" => "Funda MagSafe",
                 "modelo" => "iPhone 14",
-                "descripcion" => "Funda Silicone Case Colores: azul, gris, negro",
+                /*"descripcion" => "Funda Silicone Case Colores: azul, gris, negro",*/
                 "precio" => 6000,
                 "imagen" => "funda_silicona_14.jpeg",
                 "marca" => "Apple",
@@ -37,8 +40,9 @@ class catalogoFundasController extends Controller
             ],
             [
                 "id" => 4,
+                "nombre" => "Funda MagSafe",
                 "modelo" => "iPhone 14 Pro Max",
-                "descripcion" => "Funda MagSafe Color: Violeta",
+                /*"descripcion" => "Funda MagSafe Color: Violeta",*/
                 "precio" => 5500,
                 "imagen" => "funda_magsafe_14promax.jpeg",
                 "marca" => "Apple",
