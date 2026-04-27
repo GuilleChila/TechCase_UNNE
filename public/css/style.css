@@ -72,7 +72,8 @@
         .cabecera .nav-link {
             color: #f9edb9 !important;
             padding: 5px 10px !important;
-            font-size: 0.95rem;
+            /*font-size: 0.95rem;*/
+            font-size: large;
         }
         .search-input {
             width: 100%;
@@ -124,15 +125,16 @@
 .form-contacto {
     display: flex;
     justify-content: center;
-    padding: 50px 20px;
-    background-color: #fff; 
+    padding: 50px;
+    background-color:hsl(0, 0%, 100%);
     border-radius: 20px;
 }
 
 .form-container {
     width: 100%;
+    padding: 15px;     
     max-width: 600px; /*ancho del formato*/
-    background: #fff;
+    background-color: transparent;
     border-radius: 7px;
     box-shadow: 0 8px 30px rgba(19, 4, 4, 0.05);
 }
@@ -419,7 +421,7 @@ select,
 .search-input {
     width: 100%;
     background-color: #1a1a1a; /* Fondo oscuro */
-    border: 1px solid #444;    /* Borde gris sutil */
+    border: 3px solid #000000;    /* Borde gris sutil */
     border-radius: 12px;       /* Bordes redondeados */
     padding: 12px 45px 12px 20px; /* Espacio extra a la derecha para la lupa */
     color: #888;               /* Color del texto y placeholder */
@@ -430,7 +432,7 @@ select,
 /* Cambio de color al hacer clic */
 .search-input:focus {
     border-color: #00ffff; /* Puedes usar tu azul neón aquí para que combine */
-    color: #fff;
+    color: #000000;
 }
 
 .search-icon {
