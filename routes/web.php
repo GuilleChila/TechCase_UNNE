@@ -36,6 +36,10 @@ Route::get('/catalogo', function(){
     return view('catalogo');
 })->name('catalogo');
 
+Route::get('/terminos-condiciones', function(){
+    return view('terminos-condiciones');
+})->name('terminos-condiciones');
+
 
 /*Route::get('/catalogo-fundas', function(){
     return view('catalogo-fundas');
