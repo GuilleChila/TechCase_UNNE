@@ -581,10 +581,6 @@ select,
     color: #fff;
 }
 
-
-
-
-
 /* Estilo para que el título coincida con el de contacto */
 .titulo-seccion {
      color: hsla(228, 79%, 7%, 0.678);
@@ -592,6 +588,73 @@ select,
     font-weight: 700;
 }
 
+.legal-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    font-family: 'Inter', sans-serif; /* O la que estés usando */
+}
+
+.legal-title {
+    font-weight: 700;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.legal-intro {
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.accordion-legal {
+    border-top: 1px solid #000;
+}
+
+.legal-item {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.legal-trigger {
+    width: 100%;
+    padding: 25px 0;
+    background: none;
+    border: none;
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.legal-trigger:hover {
+    color: #666;
+}
+
+/* Icono de + o flecha */
+.legal-trigger::after {
+    content: '+';
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.legal-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background-color: #f9f9f9;
+    padding: 0 20px;
+}
+
+.legal-content p, .legal-content ul {
+    padding: 20px 0;
+    color: #444;
+    line-height: 1.6;
+    margin: 0;
+}
 /* Color de las flechas (azul oscuro) */
 .accordion-button::after {
     filter: invert(18%) sepia(88%) saturate(2311%) hue-rotate(202deg) brightness(91%) contrast(104%);
