@@ -18,8 +18,13 @@
                 </div>
 
                 <div class="product-action">
-                    <a href="#" class="btn-buy">Comprar</a>
-                </div>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus">-</button>
+              <input type="text" class="quantity-input" value="1">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <button class="btn-buy add-to-cart-btn">Añadir al carrito</button>
+          </div>
             </div>
         </div>
     @endforeach

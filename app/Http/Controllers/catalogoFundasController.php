@@ -11,7 +11,7 @@ class catalogoFundasController extends Controller
             [
                 "id" => 1,
                 "nombre" => "Funda MagSafe",
-                "modelo" => "iPhone 15 Pro Max",
+                "modelo" => "iPhone 11",
                 /*"descripcion" => "Funda MagSafe Color: Rosa.",*/
                 "precio" => 5500,
                 "imagen" => "grupo-magsafe.png",
@@ -23,7 +23,7 @@ class catalogoFundasController extends Controller
                 "nombre" => "Funda MagSafe",
                 "modelo" => "iPhone 13",
                 /*"descripcion" => "Funda silicone case Colores: marron, verde oscuro, marron claro",*/
-                "precio" => 6000,
+                "precio" => 5500,
                 "imagen" => "grupo-magsafe.png",
                 "marca" => "Apple",
                 "disenos" => 5
@@ -31,9 +31,9 @@ class catalogoFundasController extends Controller
             [
                 "id" => 3,
                 "nombre" => "Funda MagSafe",
-                "modelo" => "iPhone 14",
+                "modelo" => "iPhone 14 pro",
                 /*"descripcion" => "Funda Silicone Case Colores: azul, gris, negro",*/
-                "precio" => 6000,
+                "precio" => 5500,
                 "imagen" => "grupo-magsafe.png",
                 "marca" => "Apple",
                 "disenos" => 6
@@ -41,10 +41,90 @@ class catalogoFundasController extends Controller
             [
                 "id" => 4,
                 "nombre" => "Funda MagSafe",
-                "modelo" => "iPhone 14 Pro Max",
+                "modelo" => "iPhone 15 Pro ",
                 /*"descripcion" => "Funda MagSafe Color: Violeta",*/
                 "precio" => 5500,
                 "imagen" => "grupo-magsafe.png",
+                "marca" => "Apple",
+                "disenos" => 8
+            ],
+            [
+                "id" => 5,
+                "nombre" => "Funda MagSafe",
+                "modelo" => "iPhone 16",
+                /*"descripcion" => "Funda MagSafe Color: Violeta",*/
+                "precio" => 5500,
+                "imagen" => "grupo-magsafe.png",
+                "marca" => "Apple",
+                "disenos" => 8
+            ],
+            [
+                "id" => 6,
+                "nombre" => "Funda MagSafe",
+                "modelo" => "iPhone 17 Pro",
+                /*"descripcion" => "Funda MagSafe Color: Violeta",*/
+                "precio" => 5500,
+                "imagen" => "grupo-magsafe.png",
+                "marca" => "Apple",
+                "disenos" => 8
+            ],
+            [
+                "id" => 7,
+                "nombre" => "Funda Silicone Case",
+                "modelo" => "iPhone 11",
+                /*"descripcion" => "Funda MagSafe Color: Violeta",*/
+                "precio" => 6000,
+                "imagen" => "grupo-siliconeCase.png",
+                "marca" => "Apple",
+                "disenos" => 8
+            ],
+            [
+                "id" => 8,
+                "nombre" => "Funda Silicone Case",
+                "modelo" => "iPhone 13",
+                /*"descripcion" => "Funda MagSafe Color: Violeta",*/
+                "precio" => 6000,
+                "imagen" => "grupo-siliconeCase.png",
+                "marca" => "Apple",
+                "disenos" => 8
+            ],
+            [
+                "id" => 9,
+                "nombre" => "Funda Silicone Case",
+                "modelo" => "iPhone 14 Pro ",
+                /*"descripcion" => "Funda MagSafe Color: Violeta",*/
+                "precio" => 6000,
+                "imagen" => "grupo-siliconeCase.png",
+                "marca" => "Apple",
+                "disenos" => 8
+            ],
+            [
+                "id" => 10,
+                "nombre" => "Funda Silicone Case",
+                "modelo" => "iPhone 15 Pro ",
+                /*"descripcion" => "Funda MagSafe Color: Violeta",*/
+                "precio" => 6000,
+                "imagen" => "grupo-siliconeCase.png",
+                "marca" => "Apple",
+                "disenos" => 8
+            ],
+            [
+                "id" => 11,
+                "nombre" => "Funda Silicone Case",
+                "modelo" => "iPhone 16",
+                /*"descripcion" => "Funda MagSafe Color: Violeta",*/
+                "precio" => 6000,
+                "imagen" => "grupo-siliconeCase.png",
+                "marca" => "Apple",
+                "disenos" => 8
+            ],
+            [
+                "id" => 12,
+                "nombre" => "Funda Silicone Case",
+                "modelo" => "iPhone 17 Pro ",
+                /*"descripcion" => "Funda MagSafe Color: Violeta",*/
+                "precio" => 6000,
+                "imagen" => "grupo-siliconeCase.png",
                 "marca" => "Apple",
                 "disenos" => 8
             ]
