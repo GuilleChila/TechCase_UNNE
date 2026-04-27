@@ -15,7 +15,7 @@ class catalogoCargadoresController extends controller
                 "amperaje" => "20w",
                 "descripcion" => "Cargador USB-C 20w",
                 "precio" => 11000,
-                "imagen" => "funda-iphone.jpg",
+                "imagen" => "cargador-20w.png",
                 "marca" => "Apple"
             ],
             [
@@ -23,7 +23,7 @@ class catalogoCargadoresController extends controller
                 "amperaje" => "5w",
                 "descripcion" => "Cargador USB ",
                 "precio" => 7000,
-                "imagen" => "funda-samsung.jpg",
+                "imagen" => "cargador-5w.png",
                 "marca" => "Apple"
             ],
             [
@@ -37,7 +37,7 @@ class catalogoCargadoresController extends controller
                 "id" => 4,
                 "descripcion" => "Cable USB a Lightning",
                 "precio" => 3900,
-                "imagen" => "funda-xiaomi.jpg",
+                "imagen" => "cable-comun.png",
                 "marca" => "Apple"
             ],
             [

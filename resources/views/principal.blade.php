@@ -12,7 +12,7 @@
         <div id="carouselExampleFade" class="carousel slide carousel-fade">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="{{ asset('img/ej trendy 1.jpg') }}" class="d-block w-100" alt="..." style= "max-height: 350px">
+      <img src="{{ asset('img/promocion-1,carrusel.png') }}" class="d-block w-100" alt="..." style= "max-height: 350px">
     </div>
     <div class="carousel-item">
       <img src="{{ asset('img/ej trendy 2.jpg') }}" class="d-block w-100" alt="..." style= "max-height: 350px">

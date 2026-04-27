@@ -358,11 +358,11 @@ select,
 }
 
 .product-image-container img{
-    max-width: 50%; /* Ajusta este % si la querés aún más chica */
+    max-width: 100%; /* Ajusta este % si la querés aún más chica */
     height: auto;
     display: block;
     margin: 0 auto; /* Centra la imagen en su columna */
-    border: 3px solid #000; 
+    border: 2px solid #000; 
     border-radius: 8px; /* Opcional: un borde redondeado suave */
     box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Opcional: una sombrita suave */
 }
