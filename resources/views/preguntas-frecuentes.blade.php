@@ -95,7 +95,7 @@
                         </button>
                     </h2>
                     <div id="f8" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">Ella me llama y no se que hacer... pero vos escribinos y te lo solucionamos al toque.</div>
+                        <div class="accordion-body"> Nuestra prioridad es que recibas tus productos en perfectas condiciones. Si por algún motivo el pedido llega dañado durante el transporte o no coincide con lo que compraste, nos hacemos responsables de gestionar el cambio o la devolución sin costo adicional para vos.</div>
                     </div>
                 </div>
 
