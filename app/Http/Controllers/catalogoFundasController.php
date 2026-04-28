@@ -16,7 +16,7 @@ class catalogoFundasController extends Controller
                 "precio" => 5500,
                 "imagen" => "grupo-magsafe.png",
                 "marca" => "Apple",
-                "disenos" => 3
+                "disenos" => 7
             ],
             [
                 "id" => 2,
@@ -26,7 +26,7 @@ class catalogoFundasController extends Controller
                 "precio" => 5500,
                 "imagen" => "grupo-magsafe.png",
                 "marca" => "Apple",
-                "disenos" => 5
+                "disenos" => 7
             ],
             [
                 "id" => 3,
@@ -36,7 +36,7 @@ class catalogoFundasController extends Controller
                 "precio" => 5500,
                 "imagen" => "grupo-magsafe.png",
                 "marca" => "Apple",
-                "disenos" => 6
+                "disenos" => 7
             ],
             [
                 "id" => 4,
@@ -46,7 +46,7 @@ class catalogoFundasController extends Controller
                 "precio" => 5500,
                 "imagen" => "grupo-magsafe.png",
                 "marca" => "Apple",
-                "disenos" => 8
+                "disenos" => 7
             ],
             [
                 "id" => 5,
@@ -56,7 +56,7 @@ class catalogoFundasController extends Controller
                 "precio" => 5500,
                 "imagen" => "grupo-magsafe.png",
                 "marca" => "Apple",
-                "disenos" => 8
+                "disenos" => 7
             ],
             [
                 "id" => 6,
@@ -66,7 +66,7 @@ class catalogoFundasController extends Controller
                 "precio" => 5500,
                 "imagen" => "grupo-magsafe.png",
                 "marca" => "Apple",
-                "disenos" => 8
+                "disenos" => 7
             ],
             [
                 "id" => 7,
@@ -76,7 +76,7 @@ class catalogoFundasController extends Controller
                 "precio" => 6000,
                 "imagen" => "grupo-siliconeCase.png",
                 "marca" => "Apple",
-                "disenos" => 8
+                "disenos" => 13
             ],
             [
                 "id" => 8,
@@ -86,7 +86,7 @@ class catalogoFundasController extends Controller
                 "precio" => 6000,
                 "imagen" => "grupo-siliconeCase.png",
                 "marca" => "Apple",
-                "disenos" => 8
+                "disenos" => 13
             ],
             [
                 "id" => 9,
@@ -96,7 +96,7 @@ class catalogoFundasController extends Controller
                 "precio" => 6000,
                 "imagen" => "grupo-siliconeCase.png",
                 "marca" => "Apple",
-                "disenos" => 8
+                "disenos" => 13
             ],
             [
                 "id" => 10,
@@ -106,7 +106,7 @@ class catalogoFundasController extends Controller
                 "precio" => 6000,
                 "imagen" => "grupo-siliconeCase.png",
                 "marca" => "Apple",
-                "disenos" => 8
+                "disenos" => 13
             ],
             [
                 "id" => 11,
@@ -116,7 +116,7 @@ class catalogoFundasController extends Controller
                 "precio" => 6000,
                 "imagen" => "grupo-siliconeCase.png",
                 "marca" => "Apple",
-                "disenos" => 8
+                "disenos" => 13
             ],
             [
                 "id" => 12,
@@ -126,7 +126,7 @@ class catalogoFundasController extends Controller
                 "precio" => 6000,
                 "imagen" => "grupo-siliconeCase.png",
                 "marca" => "Apple",
-                "disenos" => 8
+                "disenos" => 13
             ]
         ];
 
