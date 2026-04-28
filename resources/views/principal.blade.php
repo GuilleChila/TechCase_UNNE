@@ -15,7 +15,7 @@
     </div>
 </section>
     <div class="container-md">
-        <h2>Tendencias: </h2>
+        <h2>Tendencias </h2>
         <div id="carouselExampleFade" class="carousel slide carousel-fade">
   <div class="carousel-inner">
     <div class="carousel-item active">
