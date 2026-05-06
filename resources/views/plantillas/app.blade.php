@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechCase</title>
     <link href="{{ asset('vendor/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
     @include('parciales.cabecera')
@@ -29,29 +29,48 @@
 
         <!-- LOGIN -->
         <div id="loginForm">
-          <form method="POST" action="{{ route('login') }}">
-            @csrf
+    <form method="POST" action="{{ route('login.post') }}" novalidate>
+        @csrf
 
-            <div class="mb-3">
-              <label>Correo</label>
-              <input type="email" name="email" class="form-control" required>
-            </div>
-
-            <div class="mb-3">
-              <label>Contraseña</label>
-              <input type="password" name="password" class="form-control" required>
-            </div>
-
-            <button class="btn btn-primary w-100">Ingresar</button>
-          </form>
-
-          <div class="text-center mt-3">
-            <small>
-              ¿No tenés cuenta?
-              <a href="#" onclick="mostrarRegistro()">Registrarse</a>
-            </small>
-          </div>
+        <div class="mb-3">
+            <label class="apple-label">Correo</label>
+            <input type="email" 
+                   name="email" 
+                   value="{{ old('email') }}" 
+                   class="form-control apple-input {{ $errors->has('email') ? 'apple-input-error' : '' }}" 
+                   placeholder="nombre@ejemplo.com">
+            
+            @error('email')
+                <span class="apple-error-text">
+                    <i class="bi bi-exclamation-circle-fill me-1"></i> {{ $message }}
+                </span>
+            @enderror
         </div>
+
+        <div class="mb-3">
+            <label class="apple-label">Contraseña</label>
+            <input type="password" 
+                   name="password" 
+                   class="form-control apple-input {{ $errors->has('password') ? 'apple-input-error' : '' }}" 
+                   placeholder="Mínimo 8 caracteres">
+            
+            @error('password')
+                <span class="apple-error-text">
+                    <i class="bi bi-exclamation-circle-fill me-1"></i> {{ $message }}
+                </span>
+            @enderror
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100 apple-btn">Ingresar</button>
+    </form>
+
+    <div class="text-center mt-3">
+        <small class="apple-footer-text">
+            ¿No tenés cuenta?
+            <a href="#" class="apple-link" onclick="mostrarRegistro()">Registrarse</a>
+        </small>
+    </div>
+</div>
 
         <!-- REGISTRO -->
         <div id="registerForm" style="display: none;">
@@ -111,6 +130,15 @@ function mostrarLogin() {
     document.getElementById('registerForm').style.display = 'none';
     document.getElementById('modalTitle').innerText = 'Iniciar sesión';
 }
+</script> 
+@if($errors->any())
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Reemplaza 'loginModal' por el ID real de tu modal
+        var myModal = new bootstrap.Modal(document.getElementById('loginModal'));
+        myModal.show();
+    });
 </script>
+@endif
 </body>
 </html>
