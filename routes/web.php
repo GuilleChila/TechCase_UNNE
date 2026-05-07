@@ -55,3 +55,6 @@ Route::get('/catalogo-cargadores', [catalogoCargadoresController::class, 'index'
 Route::get('/catalogo-ComeCables', [catalogoComeCablesController::class, 'index'])->name('catalogo-ComeCables');
 
 Route::post('/login-check', [AuthController::class, 'login'])->name('login.post');
+
+Route::post('/registro', [AuthController::class, 'register'])->name('register.post');
+
