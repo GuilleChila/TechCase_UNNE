@@ -74,7 +74,7 @@
 
         <!-- REGISTRO -->
         <div id="registerForm" style="display: none;">
-          <form method="POST" action="{{ route('register') }}">
+          <form method="POST" action="{{ route('register.post') }}">
             @csrf
 
             <div class="mb-2">
