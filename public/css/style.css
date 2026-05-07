@@ -1040,3 +1040,47 @@ select,
     margin: 0 auto;
     color: rgba(255, 255, 255, 0.9);
 }
+/* 1. Base del Input: La "viveza" */
+.form-control.apple-input {
+    border-radius: 10px !important;
+    border: 1px solid #d2d2d7 !important;
+    padding: 12px !important;
+    font-size: 15px !important;
+    color: #1d1d1f !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    background-color: #ffffff !important;
+}
+
+/* Foco estándar */
+.form-control.apple-input:focus {
+    border-color: #0071e3 !important;
+    box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.15) !important;
+    outline: none !important;
+}
+
+/* 2. ESTADO DE ERROR: Borde rojo, pero mantenemos el texto negro */
+.form-control.apple-input.apple-input-error {
+    border-color: #ff3b30 !important;
+    background-color: #fff9f9 !important; /* Un toque casi imperceptible de rojo */
+}
+
+/* Viveza en el error al hacer clic */
+.form-control.apple-input.apple-input-error:focus {
+    box-shadow: 0 0 0 4px rgba(255, 59, 48, 0.15) !important;
+}
+
+/* 3. El Mensaje de Error debajo */
+.apple-error-text {
+    display: flex !important;
+    align-items: center;
+    color: #ff3b30 !important;
+    font-size: 13px !important;
+    margin-top: 6px !important;
+    font-weight: 400 !important;
+    animation: appleFadeIn 0.4s ease;
+}
+
+@keyframes appleFadeIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+}

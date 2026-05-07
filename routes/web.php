@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CatalogoFundasController;
 use App\Http\Controllers\catalogoCargadoresController;
 use App\Http\Controllers\catalogoComeCablesController;
+use App\http\Controllers\AuthController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -52,3 +53,5 @@ Route::get('/producto/{id}', [CatalogoFundasController::class, 'show'])->name('d
 Route::get('/catalogo-cargadores', [catalogoCargadoresController::class, 'index'])->name('catalogo-cargadores');
 
 Route::get('/catalogo-ComeCables', [catalogoComeCablesController::class, 'index'])->name('catalogo-ComeCables');
+
+Route::post('/login-check', [AuthController::class, 'login'])->name('login.post');
