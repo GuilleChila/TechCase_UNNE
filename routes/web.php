@@ -58,3 +58,4 @@ Route::post('/login-check', [AuthController::class, 'login'])->name('login.post'
 
 Route::post('/registro', [AuthController::class, 'register'])->name('register.post');
 
+Route::post('/contacto', [AuthController::class, 'contacto'])->name('contacto.post');
