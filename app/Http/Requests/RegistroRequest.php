@@ -25,15 +25,21 @@ class RegistroRequest extends FormRequest
         return [
             'nombre' => 'required|string|max:150',
             'documento' => 'required|size:7',
-            'email.email' => 'required|email',
-            'password' => 'required|min:8|confirmed',
+            'email' => 'required|email',
+            'password' => 'required|min:8|confirmed'
         ];
     }
     public function messages(): array{
-        'nombre.required' => 'Este campo es obligatorio',
-        'nombre.max' => 'Máximo de 150 caracteres'
-        'documento.required' => 'Este campo es obligatorio'
-        'documento.size' => 'el DNI debe tener exactamente 7 digitos'
-
+        return [
+        'nombre.required' => 'Este campo es obligatorio.',
+        'nombre.max' => 'Máximo de 150 caracteres.',
+        'documento.required' => 'Este campo es obligatorio.',
+        'documento.size' => 'El DNI debe tener exactamente 7 digitos.',
+        'email.required' => 'Este campo es obligatorio.',
+        'email.email' => 'Por favor, ingresá una dirección de correo válida.',
+        'password.required' => 'Este campo es obligatorio.',
+        'password.min' => 'La contraseña debe tener al menos 8 caracteres.',
+        'password.confirmed' => 'Las contraseñas no coinciden, por favor verificalas.'
+        ];
     }
 }
