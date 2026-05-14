@@ -74,48 +74,90 @@
 
         <!-- REGISTRO -->
         <div id="registerForm" style="display: none;">
-          <form method="POST" action="{{ route('register.post') }}">
-            @csrf
+    <form method="POST" action="{{ route('register.post') }}" novalidate>
+        @csrf
 
-            <div class="mb-2">
-              <label>Nombre</label>
-              <input type="text" name="name" class="form-control" required>
-            </div>
-
-            <div class="mb-2">
-              <label>Documento</label>
-              <input type="text" name="documento" class="form-control" required>
-            </div>
-
-            <div class="mb-2">
-              <label>Correo</label>
-              <input type="email" name="email" class="form-control" required>
-            </div>
-
-            <div class="mb-2">
-              <label>Contraseña</label>
-              <input type="password" name="password" class="form-control" required>
-            </div>
-
-            <div class="mb-3">
-              <label>Repetir contraseña</label>
-              <input type="password" name="password_confirmation" class="form-control" required>
-            </div>
-
-            <button class="btn btn-success w-100">Registrarse</button>
-          </form>
-
-          <div class="text-center mt-3">
-            <small>
-              ¿Ya tenés cuenta?
-              <a href="#" onclick="mostrarLogin()">Iniciar sesión</a>
-            </small>
-          </div>
+        <!-- Nombre -->
+        <div class="mb-3">
+            <label class="apple-label">Nombre</label>
+            <input type="text" 
+                   name="name" 
+                   value="{{ old('name') }}" 
+                   class="form-control apple-input {{ $errors->has('name') ? 'apple-input-error' : '' }}" 
+                   placeholder="Tu nombre completo">
+            
+            @error('name')
+                <span class="apple-error-text">
+                    <i class="bi bi-exclamation-circle-fill me-1"></i> {{ $message }}
+                </span>
+            @enderror
         </div>
 
-      </div>
+        <!-- Documento -->
+        <div class="mb-3">
+            <label class="apple-label">Documento</label>
+            <input type="text" 
+                   name="documento" 
+                   value="{{ old('documento') }}" 
+                   class="form-control apple-input {{ $errors->has('documento') ? 'apple-input-error' : '' }}" 
+                   placeholder="DNI o Pasaporte">
+            
+            @error('documento')
+                <span class="apple-error-text">
+                    <i class="bi bi-exclamation-circle-fill me-1"></i> {{ $message }}
+                </span>
+            @enderror
+        </div>
+
+        <!-- Correo -->
+        <div class="mb-3">
+            <label class="apple-label">Correo</label>
+            <input type="email" 
+                   name="email" 
+                   value="{{ old('email') }}" 
+                   class="form-control apple-input {{ $errors->has('email') ? 'apple-input-error' : '' }}" 
+                   placeholder="nombre@ejemplo.com">
+            
+            @error('email')
+                <span class="apple-error-text">
+                    <i class="bi bi-exclamation-circle-fill me-1"></i> {{ $message }}
+                </span>
+            @enderror
+        </div>
+
+        <!-- Contraseña -->
+        <div class="mb-3">
+            <label class="apple-label">Contraseña</label>
+            <input type="password" 
+                   name="password" 
+                   class="form-control apple-input {{ $errors->has('password') ? 'apple-input-error' : '' }}" 
+                   placeholder="Mínimo 8 caracteres">
+            
+            @error('password')
+                <span class="apple-error-text">
+                    <i class="bi bi-exclamation-circle-fill me-1"></i> {{ $message }}
+                </span>
+            @enderror
+        </div>
+
+        <!-- Repetir Contraseña -->
+        <div class="mb-3">
+            <label class="apple-label">Repetir contraseña</label>
+            <input type="password" 
+                   name="password_confirmation" 
+                   class="form-control apple-input" 
+                   placeholder="Confirmá tu contraseña">
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100 apple-btn">Registrarse</button>
+    </form>
+
+    <div class="text-center mt-3">
+        <small class="apple-footer-text">
+            ¿Ya tenés cuenta?
+            <a href="#" class="apple-link" onclick="mostrarLogin()">Iniciar sesión</a>
+        </small>
     </div>
-  </div>
 </div>
     <script src="{{ asset('vendor/js/bootstrap.bundle.min.js') }}"></script>
     <script>
