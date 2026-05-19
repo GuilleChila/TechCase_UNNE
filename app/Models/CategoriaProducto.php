@@ -3,19 +3,20 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class CategoriaProducto extends Model
 {
     use SoftDeletes;
 
      protected $table = "categoria_productos";
-     protected $primarykey='Categoria_id'
+     protected $primarykey='categoria_id';
      public $incrementing = false;
      protected $keytype = "int";
 
      protected $fillable = [
-        'Categoria_id',
-        'NombreCategoria',
+        'categoria_id',
+        'nombreCategoria',
         
     ];
 }
