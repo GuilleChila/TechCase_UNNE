@@ -6,7 +6,7 @@
 <section  class="form-contacto" >
 
 <div class="form-container">
-    <form action="/enviar-contacto" method="POST">
+    <form action="{{ route('contacto.post') }} " method="POST">
         @csrf
         <div class="form-group">
             <label for="nombre">Nombre completo</label>
