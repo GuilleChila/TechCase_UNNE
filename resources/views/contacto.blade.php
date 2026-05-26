@@ -6,6 +6,21 @@
 <section  class="form-contacto" >
 
 <div class="form-container">
+    @if(session('success'))
+    <div class="alert alert-success" style="color: green; margin-bottom: 15px;">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if($errors->any())
+    <div class="alert alert-danger" style="color: red; margin-bottom: 15px;">
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <form action="{{ route('contacto.post') }} " method="POST">
         @csrf
         <div class="form-group">

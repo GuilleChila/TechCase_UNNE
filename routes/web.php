@@ -5,6 +5,7 @@ use App\Http\Controllers\CatalogoFundasController;
 use App\Http\Controllers\catalogoCargadoresController;
 use App\Http\Controllers\catalogoComeCablesController;
 use App\http\Controllers\AuthController;
+use App\Http\Controllers\ConsultaController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -58,4 +59,4 @@ Route::post('/login-check', [AuthController::class, 'login'])->name('login.post'
 
 Route::post('/registro', [AuthController::class, 'register'])->name('register.post');
 
-Route::post('/contacto', [AuthController::class, 'contacto'])->name('contacto.post');
+Route::post('/contacto', [ConsultaController::class, 'store'])->name('contacto.post');

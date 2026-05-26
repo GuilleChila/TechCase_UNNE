@@ -34,10 +34,10 @@ class ConsultaController extends Controller
             'correo'   => 'required|email',
             'telefono' => 'required|size:10',
             'motivo'   => 'required|in:ventas,soporte,envios,otros',
-            'mensaje'  => 'required|max:500',
+            'mensaje'  => 'required|string|max:500',
         ]);
         // 2. PERSISTENCIA: Guardamos en la base de datos usando Eloquent
-        Contact::create($validatedData);
+        Consulta::create($validatedData);
 
         // 3. RESPUESTA: Redireccionamos con un mensaje de éxito
         return redirect()->back()->with('success', '¡Gracias por tu consulta! Nos contactaremos pronto.');
