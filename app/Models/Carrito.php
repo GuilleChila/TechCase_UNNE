@@ -28,4 +28,17 @@ class Carrito extends Model
                     ->withPivot('cantidad')
                     ->withTimestamps();
     }
+
+    public function getTotalAttribute(): float
+{
+    $total = 0;
+
+    // Recorremos los productos asociados a este carrito
+    foreach ($this->productos as $producto) {
+        // Multiplicamos el precio del producto por la cantidad que está en la tabla pivote
+        $total += $producto->precio * $producto->pivot->cantidad;
+    }
+
+    return $total;
+}
 }
