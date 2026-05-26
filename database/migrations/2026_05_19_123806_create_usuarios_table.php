@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('usuarios', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre', 150);
-            $table->string('apellido', 150);
+            $table->string('nombre', 200);
+            $table->string('documento', 8);
             $table->string('correo', 250)->unique();
             $table->string('contrasenia');
+            $table->boolean('estado', 1);
             $table->unsignedInteger('perfil_id');
             $table->foreign('perfil_id')->references('perfil_id')->on('perfils');
             $table->timestamps();
