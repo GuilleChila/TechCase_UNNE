@@ -63,3 +63,7 @@ Route::post('/registro', [AuthController::class, 'register'])->name('register.po
 Route::post('/contacto', [ConsultaController::class, 'store'])->name('contacto.post');
 
 Route::resource('productos', ProductoController::class);
+
+Route::get('/admin-dashboard', function () {
+    return "¡Espectacular Guillermo! Lograste iniciar sesión como Administrador en TechCase.";
+})->name('admin.dashboard');
