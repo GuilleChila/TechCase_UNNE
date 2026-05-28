@@ -19,6 +19,7 @@ return new class extends Migration
             $table->enum('motivo', ['ventas', 'soporte', 'envios', 'otros']);
             $table->text('mensaje');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
