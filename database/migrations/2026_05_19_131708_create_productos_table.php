@@ -15,11 +15,14 @@ return new class extends Migration
             $table->id();
             $table->string('descripcion',150);
             $table->string('modelo', 150);
-            $table->decimal('precio');
-            $table->Integer('stock');
-            $table->unsignedInteger('categoria_id');
-            $table->foreign('categoria_id')->references('categoria_id')->on('categoria_productos');
+            $table->decimal('precio', 10, 2);
+            $table->integer('stock');
+            $table->foreignId('categoria_id')->constrained('categoria_productos');
+            $table->string('imagen')->nullable();
+            $table->unsignedBigInteger('categoria_id');
+            $table->foreign('categoria_id')->references('categoria_id')->on('categoria_productos')->onDelete('cascade');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
