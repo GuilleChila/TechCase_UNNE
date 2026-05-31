@@ -4,24 +4,29 @@
 <h1>catalogo de <b>Fundas</b></h1>
     <div class="row">
         @foreach ($fundas as $funda)
-           <div class="col-6 col-md-4 col-lg-2 mb-4"> <div class="product-card">
-                <div class="product-image-container">
-                    <img src="{{ asset('img/' . $funda['imagen']) }}" alt="{{ $funda['modelo'] }}" class="product-img">
-                </div>
+  <div class="col-6 col-md-4 col-lg-2 mb-4">
+    <div class="product-card">
+      <div class="product-image-container">
+        <img src="{{ asset('img/' . $funda->imagen) }}" alt="{{ $funda->nombre }}" class="product-img">
+      </div>
 
-                <div class="product-info">
-                    <h3 class="product-model">{{ $funda['nombre'] }}</h3>
-                     <h4 class="product-model">{{ $funda['modelo'] }}</h4>
-                    <h5 class="product-model">Precio</h5>
-                    <p class="product-price">${{ number_format($funda['precio'], 0, ',', '.') }}</p>
-                </div>
+      <div class="product-info">
+        <h3 class="product-model">{{ $funda->marca }} - {{ $funda->nombre }}</h3>
+        
+        <p class="text-muted mb-0">Compatibilidad: {{ $funda->modelo }}</p>
+        <small class="text-muted">Diseños disponibles: {{ $funda->disenos }}</small>
 
-                <div class="product-action">
-                    <a href="{{ route('detalle-funda', ['id' => $funda['id']]) }}" class="btn-buy">Comprar</a>
-                </div>
-            </div>
+        <p class="product-price">${{ number_format($funda->precio, 0, ',', '.') }}</p>
+      </div>
+
+      <div class="product-action">
+        <div class="quantity-selector">
+          <button class="quantity-btn minus">-</button>
+          <input type="text" class="quantity-input" value="1">
+          <button class="quantity-btn plus">+</button>
         </div>
-        @endforeach
+        <button class="btn-buy add-to-cart-btn">Añadir al carrito</button>
+      </div>
     </div>
-</div>
-@endsection
+  </div>
+@endforeach

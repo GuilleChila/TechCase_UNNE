@@ -1,4 +1,4 @@
- @extends('plantillas.app')
+@extends('plantillas.app')
 @section('content')
   <h1>catálogo <b>cargadores</b></h1>
   <div class="row">
@@ -7,12 +7,12 @@
         <div class="product-card">
           <div class="product-image-container">
             {{-- Usamos la clave 'imagen' de tu array --}}
-            <img src="{{ asset('img/' . $cargador['imagen']) }}" alt="{{ $cargador['descripcion'] }}" class="product-img">
+            <img src="{{ asset('img/' . $cargador['imagen']) }}" alt="{{ $cargador['nombre'] }}" class="product-img">
           </div>
 
           <div class="product-info">
             {{-- Mostramos la marca y descripción --}}
-            <h3 class="product-model">{{ $cargador['marca'] }} - {{ $cargador['descripcion'] }}</h3>
+            <h3 class="product-model">{{ $cargador['marca'] }} - {{ $cargador['nombre'] }}</h3>
 
             {{-- Si el cargador tiene amperaje, lo mostramos opcionalmente --}}
             @if(isset($cargador['amperaje']))
