@@ -66,4 +66,6 @@ Route::resource('productos', ProductoController::class);
 
 Route::get('/admin-dashboard', function () {
     return "¡Espectacular Guillermo! Lograste iniciar sesión como Administrador en TechCase.";
-})->name('admin.dashboard');
+})->name('admin.dashboard')->middleware('admin');
+
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

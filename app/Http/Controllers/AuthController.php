@@ -27,7 +27,7 @@ class AuthController extends Controller
 
         // 4. Redirección inteligente según PerfilSeeder:
         if ($usuarioLogueado->perfil_id == 2) { 
-            return redirect()->route('admin.dashboard')->with('success', '¡Bienvenido al Panel de Administración!');
+            return redirect()->route('principal')->with('success', '¡Bienvenido al Panel de Administración!');
         }
         return back()->with('success', '¡Sesión iniciada con éxito! Disfrutá de TechCase.');
     }
@@ -51,5 +51,20 @@ class AuthController extends Controller
         ]);
        return back()->with('success', '¡Cuenta creada con éxito! Ya podés iniciar sesión.');
     }
+
+    public function logout(Request $request)
+{
+    // 1. Desloguea al usuario en el sistema
+    Auth::logout();
+
+    // 2. Invalida la sesión del navegador para que no se pueda reutilizar
+    $request->session()->invalidate();
+
+    // 3. Regenera el token CSRF por seguridad
+    $request->session()->regenerateToken();
+
+    // 4. Redirige a la página principal con un mensaje de éxito
+    return redirect('/principal')->with('success', 'Sesión cerrada correctamente.');
+}
 }
 

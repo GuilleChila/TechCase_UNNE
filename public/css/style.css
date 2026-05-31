@@ -1084,3 +1084,54 @@ select,
     from { opacity: 0; transform: translateY(-4px); }
     to { opacity: 1; transform: translateY(0); }
 }
+.perfil-usuario-logeado {
+    display: inline-flex; /* Cambiado a inline-flex para que actúe como un bloque en línea y no empuje elementos */
+    align-items: center;
+    gap: 12px;
+    vertical-align: middle; /* Lo alinea verticalmente con el resto del texto de la cabecera */
+}
+
+.perfil-usuario-logeado .nombre-usuario {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #f9edb9;
+    letter-spacing: -0.01em;
+    white-space: nowrap; /* Evita que el nombre se quiebre en dos líneas */
+}
+
+.btn-apple-logout {
+    background: none !important; /* El !important asegura barrer cualquier estilo residual de Bootstrap */
+    border: none !important;
+    padding: 4px !important;
+    box-shadow: none !important; /* Mata el recuadro o sombra celeste de enfoque */
+    outline: none !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Estilos específicos del ícono SVG */
+.btn-apple-logout .icon-power {
+    width: 18px;
+    height: 18px;
+    stroke: #86868b; /* Gris aluminio original de Apple */
+    stroke-width: 2.2; /* Subimos un pelín el grosor para mejorar la visibilidad contra el fondo oscuro */
+    transition: stroke 0.2s ease;
+}
+
+/* --- Micro-interacciones Premium (Hover y Click) --- */
+
+.btn-apple-logout:hover .icon-power {
+    stroke: #ff3b30; /* System Red de Apple al pasar el cursor */
+}
+
+.btn-apple-logout:hover {
+    transform: scale(1.08); /* Feedback de tamaño sutil */
+}
+
+.btn-apple-logout:active {
+    transform: scale(0.92); /* Sensación física de click */
+}
