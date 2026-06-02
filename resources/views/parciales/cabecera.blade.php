@@ -75,7 +75,7 @@
                             <li class="nav-item d-flex align-items-center ms-lg-3">
                                 <a class="nav-link position-relative" href="{{ route('carrito') }}">
                                     <i class="bi bi-cart3" style="font-size: 1.2rem; color: white;"></i>
-                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem;">1</span>
+                                    <span id="cart-badge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem;">1</span>
                                 </a>
                             </li>
                             

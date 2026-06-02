@@ -4,37 +4,15 @@
     <h1 class="cart-title">Tu Carrito</h1>
 
     <div class="cart-grid">
-        <div class="cart-items">
-            <div class="cart-item">
-                <div class="item-img">
-                    <img src="{{ asset('img/fundas/iphone15-pink.jpg') }}" alt="Producto">
-                </div>
-                <div class="item-details">
-                    <h3>Funda iPhone 15 Pro Max</h3>
-                    <p class="item-variant">Diseño: Abstracto #3</p>
-                    <div class="item-actions">
-                        <div class="quantity-picker">
-                            <button>-</button>
-                            <input type="text" value="1" readonly>
-                            <button>+</button>
-                        </div>
-                        <button class="btn-remove"><i class="bi bi-trash"></i></button>
-                    </div>
-                </div>
-                <div class="item-price">
-                    $5.500
-                </div>
+        <div class="cart-items" id="cart-items-container">
             </div>
-
-            <hr class="cart-divider">
-        </div>
 
         <div class="cart-summary">
             <div class="summary-card">
                 <h2>Resumen</h2>
                 <div class="summary-line">
                     <span>Subtotal</span>
-                    <span>$5.500</span>
+                    <span id="cart-subtotal">$0</span>
                 </div>
                 <div class="summary-line">
                     <span>Envío (Uber Moto)</span>
@@ -43,7 +21,7 @@
                 <hr>
                 <div class="summary-line total">
                     <span>Total</span>
-                    <span>$5.500</span>
+                    <span id="cart-total">$0</span>
                 </div>
                 
                 <p class="summary-note">* Los pagos se realizan vía QR tras confirmar por WhatsApp.</p>

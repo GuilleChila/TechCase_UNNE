@@ -164,6 +164,7 @@
     </div>
   </div>
 </div>
+<script src="{{ asset('js/carrito.js') }}"></script>
 <script src="{{ asset('vendor/js/bootstrap.bundle.min.js') }}"></script>
 
 <script>
