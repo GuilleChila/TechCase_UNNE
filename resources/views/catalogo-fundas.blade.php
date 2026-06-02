@@ -31,10 +31,15 @@
                             <input type="text" class="quantity-input" value="1" readonly style="color: #1d1d1f !important; font-weight: 600; text-align: center; width: 32px; height: 100%; border: none; background: transparent; padding: 0; margin: 0; outline: none; font-size: 16px;">
                             <button class="quantity-btn plus">+</button>
                         </div>
-                        <button class="btn-buy add-to-cart-btn">Añadir al carrito</button>
+                        
+                        <a href="{{ route('detalle-funda', $funda->id) }}" class="btn-buy btn-ver-detalle text-center text-decoration-none">
+                            Ver detalle
+                        </a>
                     </div>
                 </div>
-            </div> @endforeach
+            </div> 
+        @endforeach
 
-    </div> </div>
+    </div> 
+</div>
 @endsection
