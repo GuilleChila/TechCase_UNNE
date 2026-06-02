@@ -50,28 +50,35 @@ document.addEventListener('DOMContentLoaded', () => {
         if (btnAddToCart) {
             btnAddToCart.addEventListener('click', (e) => {
                 e.preventDefault();
+                
+                // Buscamos si hay un diseño seleccionado dentro de esta tarjeta
+                const disenoSeleccionado = card.querySelector('input[name="diseno"]:checked');
+                const diseno = disenoSeleccionado ? disenoSeleccionado.value : null;
+
                 const producto = {
                     id: card.dataset.id,
+                    // Si hay diseño, lo sumamos al nombre para diferenciarlo en el almacenamiento
                     nombre: card.dataset.nombre,
                     precio: parseFloat(card.dataset.precio),
                     imagen: card.dataset.imagen,
-                    cantidad: parseInt(inputQuantity.value) || 1
+                    cantidad: parseInt(inputQuantity.value) || 1,
+                    diseno: diseno // <--- Guardamos el diseño elegido (ej: "2")
                 };
 
                 agregarAlCarrito(producto);
                 
-                // Reiniciamos al valor inicial de forma segura
                 inputQuantity.value = 1; 
                 inputQuantity.setAttribute('value', 1);
             });
         }
+
     });
 
     // ==========================================
     // 2. LÓGICA DEL CARRITO (GESTIÓN DE DATOS)
     // ==========================================
     function agregarAlCarrito(itemNuevo) {
-        const existe = carrito.find(item => item.id === itemNuevo.id);
+        const existe = carrito.find(item => item.id === itemNuevo.id && item.diseno === itemNuevo.diseno);
 
         if (existe) {
             existe.cantidad += itemNuevo.cantidad;
@@ -80,7 +87,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         guardarYActualizar();
-        alert(`¡Agregado al carrito: ${itemNuevo.cantidad}x ${itemNuevo.nombre}!`);
+        const textoDiseno = itemNuevo.diseno ? ` (Diseño ${itemNuevo.diseno})` : '';
+        alert(`¡Agregado al carrito: ${itemNuevo.cantidad}x ${itemNuevo.nombre}${textoDiseno}!`);
     }
 
     function guardarYActualizar() {
@@ -137,6 +145,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const subtotalItem = item.precio * item.cantidad;
             subtotalGeneral += subtotalItem;
 
+            const infoDiseno = item.diseno 
+                ? `<p class="item-variant text-muted mb-1">Diseño elegido: <b>${item.diseno}</b></p>` 
+                : '';
+
             htmlContenido += `
                 <div class="cart-item" data-index="${index}">
                     <div class="item-img">
@@ -144,6 +156,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                     <div class="item-details">
                         <h3>${item.nombre}</h3>
+                        
+                        ${infoDiseno}
+                        
                         <p class="item-variant">Unidades elegidas</p>
                         <div class="item-actions">
                             <div class="quantity-picker">
