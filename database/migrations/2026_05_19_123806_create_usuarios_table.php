@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('documento', 8);
             $table->string('correo', 250)->unique();
             $table->string('contrasenia');
-            $table->boolean('estado', 1);
+            $table->boolean('estado')->default(true);
             $table->unsignedInteger('perfil_id');
             $table->foreign('perfil_id')->references('perfil_id')->on('perfils');
             $table->timestamps();

@@ -23,9 +23,9 @@ class RegistroRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nombre' => 'required|string|max:150',
-            'documento' => 'required|size:8',
-            'email' => 'required|email',
+            'name' => 'required|string|max:150',
+            'documento' => 'required|size:8|unique:usuarios,documento',
+            'email' => 'required|email|unique:usuarios,correo',
             'password' => 'required|min:8|confirmed'
         ];
     }
