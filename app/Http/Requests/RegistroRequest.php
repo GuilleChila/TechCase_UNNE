@@ -24,7 +24,7 @@ class RegistroRequest extends FormRequest
     {
         return [
             'nombre' => 'required|string|max:150',
-            'documento' => 'required|size:7',
+            'documento' => 'required|size:8',
             'email' => 'required|email',
             'password' => 'required|min:8|confirmed'
         ];
@@ -34,7 +34,7 @@ class RegistroRequest extends FormRequest
         'nombre.required' => 'Este campo es obligatorio.',
         'nombre.max' => 'Máximo de 150 caracteres.',
         'documento.required' => 'Este campo es obligatorio.',
-        'documento.size' => 'El DNI debe tener exactamente 7 digitos.',
+        'documento.size' => 'El DNI debe tener exactamente 8 digitos.',
         'email.required' => 'Este campo es obligatorio.',
         'email.email' => 'Por favor, ingresá una dirección de correo válida.',
         'password.required' => 'Este campo es obligatorio.',
