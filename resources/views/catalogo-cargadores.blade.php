@@ -14,14 +14,18 @@
                      data-imagen="{{ asset('img/' . $cargador->imagen) }}">
                      
                     <div class="product-image-container">
-                        <img src="{{ asset('img/' . $cargador->imagen) }}" alt="{{ $cargador->nombre }}" class="product-img">
+                        @if($cargador->imagen)
+                            <img src="{{ asset('img/' . $cargador->imagen) }}" alt="{{ $cargador->nombre }}" class="product-img">
+                        @else
+                            <img src="{{ asset('img/no-image.png') }}" alt="Sin imagen" class="product-img" style="opacity: 0.5;">
+                        @endif
                     </div>
 
                     <div class="product-info">
                         <h3 class="product-model">{{ $cargador->marca }} - {{ $cargador->nombre }}</h3>
 
                         @if(isset($cargador->amperaje))
-                            <small class="text-muted">{{ $cargador->amperaje }}</small>
+                            <small class="text-muted">Amperaje: {{ $cargador->amperaje }}</small>
                         @endif
 
                         <p class="product-price">${{ number_format($cargador->precio, 0, ',', '.') }}</p>

@@ -1,4 +1,21 @@
-@extends('plantillas.app') @section('content') <div class="container" style="margin-top: 30px; margin-bottom: 30px;">
+@extends('plantillas.app') 
+
+@section('content') 
+<style>
+    /* Chrome, Safari, Edge, Opera */
+    input.sin-flechas::-webkit-inner-spin-button,
+    input.sin-flechas::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    /* Firefox */
+    input.sin-flechas {
+        -moz-appearance: textfield;
+    }
+</style>
+
+<div class="container" style="margin-top: 30px; margin-bottom: 30px;">
     <h2>Crear Nuevo Producto</h2>
     <hr>
 
@@ -23,37 +40,42 @@
 
         <div class="form-group" style="margin-bottom: 15px;">
             <label>Nombre del Producto:</label>
-            <input type="text" name="nombre" value="{{ old('nombre') }}" class="form-control" placeholder="Ej: Funda MagSafe">
+            <input type="text" name="nombre" value="{{ old('nombre') }}" class="form-control">
         </div>
 
         <div class="form-group" style="margin-bottom: 15px;">
             <label>Modelo:</label>
-            <input type="text" name="modelo" value="{{ old('modelo') }}" class="form-control" placeholder="Ej: iPhone 11">
+            <input type="text" name="modelo" value="{{ old('modelo') }}" class="form-control">
         </div>
 
         <div class="form-group" style="margin-bottom: 15px;">
             <label>Marca:</label>
-            <input type="text" name="marca" value="{{ old('marca') }}" class="form-control" placeholder="Ej: Apple">
+            <input type="text" name="marca" value="{{ old('marca') }}" class="form-control">
         </div>
 
         <div class="form-group" style="margin-bottom: 15px;">
             <label>Precio ($):</label>
-            <input type="number" step="0.01" name="precio" value="{{ old('precio') }}" class="form-control" placeholder="Ej: 5500">
+            <input type="number" step="1" min="0" name="precio" value="{{ old('precio') }}" placeholder="0" class="form-control sin-flechas">
         </div>
 
         <div class="form-group" style="margin-bottom: 15px;">
             <label>Stock Disponible:</label>
-            <input type="number" name="stock" value="{{ old('stock') }}" class="form-control" placeholder="Ej: 10">
+            <input type="number" min="0" name="stock" value="{{ old('stock') }}" placeholder="0" class="form-control">
         </div>
 
         <div class="form-group" style="margin-bottom: 15px;">
             <label>Cantidad de Diseños:</label>
-            <input type="number" name="disenos" value="{{ old('disenos') }}" class="form-control" placeholder="Ej: 7">
+            <input type="number" min="0" name="disenos" value="{{ old('disenos') }}" placeholder="0" class="form-control">
         </div>
 
         <div class="form-group" style="margin-bottom: 15px;">
-            <label>ID de Categoría (1=Fundas, 2=Cargadores, 3=ComeCables):</label>
-            <input type="number" name="categoria_id" value="{{ old('categoria_id') }}" class="form-control" placeholder="Ej: 1">
+            <label>Categoría del Producto:</label>
+            <select name="categoria_id" class="form-control" style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+                <option value="" disabled {{ old('categoria_id') == '' ? 'selected' : '' }}>Selecciona una opción</option>
+                <option value="1" {{ old('categoria_id') == '1' ? 'selected' : '' }}>1 Fundas</option>
+                <option value="2" {{ old('categoria_id') == '2' ? 'selected' : '' }}>2 Cargadores</option>
+                <option value="3" {{ old('categoria_id') == '3' ? 'selected' : '' }}>3 ComeCables</option>
+            </select>
         </div>
 
         <div class="form-group" style="margin-bottom: 20px;">

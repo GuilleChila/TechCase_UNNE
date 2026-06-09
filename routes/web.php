@@ -7,6 +7,7 @@ use App\Http\Controllers\catalogoComeCablesController;
 use App\http\Controllers\AuthController;
 use App\Http\Controllers\ConsultaController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\AdminController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -69,3 +70,10 @@ Route::get('/admin-dashboard', function () {
 })->name('admin.dashboard')->middleware('admin');
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
+    
+    Route::get('/', [AdminController::class, 'index'])->name('index');
+    
+    Route::delete('/productos/{producto}', [ProductoController::class, 'destroy'])->name('products.destroy');
+});
