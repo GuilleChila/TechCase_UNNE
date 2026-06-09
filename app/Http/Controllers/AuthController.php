@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegistroRequest;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Usuario;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -27,10 +29,9 @@ class AuthController extends Controller
 
         // 4. Redirección inteligente según PerfilSeeder:
         if ($usuarioLogueado->perfil_id == 2) { 
-            return redirect()->route('principal')->with('success', '¡Bienvenido al Panel de Administración!');
+            return redirect()->route('admin.index')->with('success', '¡Bienvenido al Panel de Administración!');
         }
-        return back()->with('success', '¡Sesión iniciada con éxito! Disfrutá de TechCase.');
-    }
+        return redirect()->route('principal')->with('success', '¡Sesión iniciada con éxito! Disfrutá de TechCase.');
 
     // 5. Si las credenciales fallan, volvemos atrás inyectando el error en el modal
     return back()->withErrors([

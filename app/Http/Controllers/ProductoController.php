@@ -31,11 +31,12 @@ class ProductoController extends Controller
     {
      // 1. VALIDACIÓN (Actualizada con nombre, marca y disenos)
         $datosValidados = $request->validate([
-            'nombre'       => 'required|string|max:150',            'modelo'       => 'required|string|max:150',
+            'nombre'       => 'required|string|max:150',        
+            'modelo'       => 'required|string|max:150',
             'precio'       => 'required|numeric|min:0',
             'stock'        => 'required|integer|min:0',
             'imagen'       => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
-            'categoria_id' => 'required|integer|exists:categoria_productos,id', 
+            'categoria_id' => 'required|integer|exists:categoria_productos,categoria_id', 
             'marca'        => 'required|string|max:100',
             'disenos'      => 'required|integer|min:0',  
         ], [
@@ -51,20 +52,25 @@ class ProductoController extends Controller
             'disenos.required'      => 'La cantidad de diseños es obligatoria.',
         ]); 
 
-        // 2. PROCESAMIENTO DE LA IMAGEN (Fuera de la validación, donde corresponde)
+        // 2. PROCESAMIENTO DE LA IMAGEN
         if ($request->hasFile('imagen')) {
-            // Guarda la imagen en 'storage/app/public/productos'
-            $rutaImagen = $request->file('imagen')->store('productos', 'public');
+            $imagen = $request->file('imagen');
             
-            // Reemplazamos el archivo en el array por la ruta en formato String
-            $datosValidados['imagen'] = $rutaImagen;
+            // Le generamos un nombre único usando la hora actual para evitar que se pisen
+            $nombreImagen = time() . '_' . $imagen->getClientOriginalName();
+            
+            // Movemos el archivo directamente a public/img/
+            $imagen->move(public_path('img'), $nombreImagen);
+            
+            // Guardamos únicamente el nombre del archivo en la base de datos
+            $datosValidados['imagen'] = $nombreImagen;
         }
 
         // 3. PERSISTENCIA EN LA BASE DE DATOS
         Producto::create($datosValidados);
 
         // 4. RESPUESTA Y REDIRECCIÓN
-        return redirect()->route('productos.index')->with('success', '¡El producto ha sido guardado exitosamente!');
+        return redirect()->route('productos.create')->with('success', '¡El producto ha sido guardado exitosamente!');
     }
 
     /**
@@ -80,7 +86,7 @@ class ProductoController extends Controller
      */
     public function edit(Producto $producto)
     {
-        return view('productos.edit', compact('producto'));
+        return view('productos.modificate', compact('producto'));
     }
 
     /**
@@ -88,7 +94,23 @@ class ProductoController extends Controller
      */
     public function update(Request $request, Producto $producto)
     {
-        //
+        // 1. Reglas base para TODOS los productos
+    $reglas = [
+        'precio' => 'required|numeric|min:0',
+        'stock'  => 'required|integer|min:0',
+    ];
+
+    // 2. Si es FUNDA, también permitimos y validamos los diseños
+    if ($producto->categoria_id == 1) {
+        $reglas['disenos'] = 'required|integer|min:0';
+    }
+
+    $datosValidados = $request->validate($reglas);
+
+    // 3. Guardamos los cambios
+    $producto->update($datosValidados);
+
+    return redirect()->route('productos.index')->with('success', 'Producto actualizado correctamente.');
     }
 
     /**
@@ -98,6 +120,5 @@ class ProductoController extends Controller
     {
        $producto->delete(); // Ejecuta el SoftDelete (borrado lógico) que definiste en el modelo
         
-        return redirect()->route('productos.index')->with('success', 'Producto eliminado (borrado lógico) correctamente.');
-    }
+        return redirect()->route('admin.index')->with('success', 'El producto ha sido dado de baja lógicamente.');
 }

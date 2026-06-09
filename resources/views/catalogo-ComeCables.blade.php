@@ -14,7 +14,11 @@
                      data-imagen="{{ asset('img/' . $comeCable->imagen) }}">
                      
                     <div class="product-image-container">
-                        <img src="{{ asset('img/' . $comeCable->imagen) }}" alt="{{ $comeCable->descripcion }}" class="product-img">
+                        @if($comeCable->imagen)
+                            <img src="{{ asset('img/' . $comeCable->imagen) }}" alt="{{ $comeCable->descripcion }}" class="product-img">
+                        @else
+                            <img src="{{ asset('img/no-image.png') }}" alt="Sin imagen" class="product-img" style="opacity: 0.5;">
+                        @endif
                     </div>
 
                     <div class="product-info">

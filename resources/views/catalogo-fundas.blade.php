@@ -15,7 +15,11 @@
                      data-imagen="{{ asset('img/' . $funda->imagen) }}">
                      
                     <div class="product-image-container">
-                        <img src="{{ asset('img/' . $funda->imagen) }}" alt="{{ $funda->nombre }}" class="product-img">
+                        @if($funda->imagen)
+                            <img src="{{ asset('img/' . $funda->imagen) }}" alt="{{ $funda->nombre }}" class="product-img">
+                        @else
+                            <img src="{{ asset('img/no-image.png') }}" alt="Sin imagen" class="product-img" style="opacity: 0.5;">
+                        @endif
                     </div>
 
                     <div class="product-info">

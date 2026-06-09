@@ -10,9 +10,9 @@ class CategoriaProducto extends Model
     use SoftDeletes;
 
      protected $table = "categoria_productos";
-     protected $primarykey='categoria_id';
+     protected $primaryKey='categoria_id';
      public $incrementing = false;
-     protected $keytype = "int";
+     protected $keyType = "int";
 
      protected $fillable = [
         'categoria_id',
