@@ -5,14 +5,10 @@
     <h1>Catalogo de <b>Fundas</b></h1>
     
     <div class="row">
-        
         @foreach ($fundas as $funda)
             <div class="col-6 col-md-4 col-lg-2 mb-4">
-                <div class="product-card" 
-                     data-id="{{ $funda->id }}" 
-                     data-nombre="{{ $funda->marca }} - {{ $funda->nombre }}" 
-                     data-precio="{{ $funda->precio }}" 
-                     data-imagen="{{ asset('img/' . $funda->imagen) }}">
+                {{-- No usamos clases o data-attributes de carrito aquí para que JS lo ignore en esta vista --}}
+                <div class="product-card">
                      
                     <div class="product-image-container">
                         @if($funda->imagen)
@@ -27,23 +23,27 @@
                         <p class="text-muted mb-0"> {{ $funda->modelo }}</p>
                         <small class="text-muted">disponibles: {{ $funda->disenos }}</small>
                         <p class="product-price">${{ number_format($funda->precio, 0, ',', '.') }}</p>
+                        
+                        <div class="mt-1">
+                            @if($funda->stock == 0)
+                                <span style="font-size: 11px;" class="text-danger fw-medium">Agotado</span>
+                            @endif
+                        </div>
                     </div>
 
                     <div class="product-action">
-                        <div class="quantity-selector">
-                            <button class="quantity-btn minus">-</button>
-                            <input type="text" class="quantity-input" value="1" readonly style="color: #1d1d1f !important; font-weight: 600; text-align: center; width: 32px; height: 100%; border: none; background: transparent; padding: 0; margin: 0; outline: none; font-size: 16px;">
-                            <button class="quantity-btn plus">+</button>
-                        </div>
-                        
-                        <a href="{{ route('detalle-funda', $funda->id) }}" class="btn-buy btn-ver-detalle text-center text-decoration-none">
-                            Ver detalle
+                        {{-- Botón directo a la página de detalle --}}
+                        <a href="{{ route('detalle-funda', $funda->id) }}" class="btn-buy text-center text-decoration-none w-100" style="display: block; width: 100%;">
+                            @if($funda->stock > 0)
+                                Ver detalle
+                            @else
+                                Agotado
+                            @endif
                         </a>
                     </div>
                 </div>
             </div> 
         @endforeach
-
     </div> 
 </div>
 @endsection

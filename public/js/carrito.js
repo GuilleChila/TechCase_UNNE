@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("¡Script de carrito cargado correctamente!");
+    console.log("¡Script de carrito de TechCase cargado correctamente!");
 
     // Inicializar carrito desde LocalStorage
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
@@ -10,10 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // ==========================================
-    // 1. CONTROL DE CANTIDADES EN LAS TARJETAS
+    // 1. CONTROL DE CANTIDADES EN LAS TARJETAS / DETALLES
     // ==========================================
     const productCards = document.querySelectorAll('.product-card');
-    console.log(`Se encontraron ${productCards.length} tarjetas de producto.`);
+    console.log(`Se encontraron ${productCards.length} elementos de producto.`);
 
     productCards.forEach(card => {
         const btnMinus = card.querySelector('.quantity-btn.minus');
@@ -21,15 +21,30 @@ document.addEventListener('DOMContentLoaded', () => {
         const inputQuantity = card.querySelector('.quantity-input');
         const btnAddToCart = card.querySelector('.add-to-cart-btn');
 
+        // Atributos dinámicos polimórficos
+        const stockMax = parseInt(card.dataset.stock) || 0;
+        const productoId = card.dataset.id;
+        const tipoProducto = card.dataset.tipo || 'funda'; // 'funda', 'cargador' o 'comecable'
+
         if (btnPlus && inputQuantity) {
             btnPlus.addEventListener('click', (e) => {
                 e.preventDefault();
                 let qty = parseInt(inputQuantity.value) || 1;
-                let nuevoValor = qty + 1;
                 
-                // Forzamos la actualización en memoria y en el HTML visual
-                inputQuantity.value = nuevoValor;
-                inputQuantity.setAttribute('value', nuevoValor);
+                // Buscamos cuántas unidades de este producto (del mismo tipo) ya están en el carrito
+                const enCarrito = carrito
+                    .filter(item => item.id === productoId && item.tipo === tipoProducto)
+                    .reduce((total, item) => total + item.cantidad, 0);
+                
+                const disponibleReal = stockMax - enCarrito;
+
+                if (qty < disponibleReal) {
+                    let nuevoValor = qty + 1;
+                    inputQuantity.value = nuevoValor;
+                    inputQuantity.setAttribute('value', nuevoValor);
+                } else {
+                    alert(`No puedes agregar más unidades. El stock máximo disponible es de ${stockMax} y ya tienes ${enCarrito} en tu carrito.`);
+                }
             });
         }
 
@@ -51,37 +66,62 @@ document.addEventListener('DOMContentLoaded', () => {
             btnAddToCart.addEventListener('click', (e) => {
                 e.preventDefault();
                 
-                // Buscamos si hay un diseño seleccionado dentro de esta tarjeta
+                // Buscamos si hay un diseño seleccionado dentro de esta tarjeta/detalle (aplica a fundas)
                 const disenoSeleccionado = card.querySelector('input[name="diseno"]:checked');
                 const diseno = disenoSeleccionado ? disenoSeleccionado.value : null;
+                const cantidadAAnadir = parseInt(inputQuantity.value) || 1;
 
+                // Validamos el stock acumulado global de este ID y tipo para no romper los límites
+                const enCarrito = carrito
+                    .filter(item => item.id === productoId && item.tipo === tipoProducto)
+                    .reduce((total, item) => total + item.cantidad, 0);
+                
+                if ((enCarrito + cantidadAAnadir) > stockMax) {
+                    alert(`Error: No puedes superar el stock máximo de ${stockMax} unidades.`);
+                    return;
+                }
+
+                // Estructura de producto omnipotente y genérica
                 const producto = {
-                    id: card.dataset.id,
-                    // Si hay diseño, lo sumamos al nombre para diferenciarlo en el almacenamiento
+                    id: productoId,
+                    tipo: tipoProducto,
                     nombre: card.dataset.nombre,
                     precio: parseFloat(card.dataset.precio),
                     imagen: card.dataset.imagen,
-                    cantidad: parseInt(inputQuantity.value) || 1,
-                    diseno: diseno // <--- Guardamos el diseño elegido (ej: "2")
+                    cantidad: cantidadAAnadir,
+                    diseno: diseno, // Guardará el número (ej: "1") o null si es cargador/comecable
+                    stock: stockMax   // Persistimos el stock máximo para leerlo desde la vista del carrito
                 };
 
                 agregarAlCarrito(producto);
                 
-                inputQuantity.value = 1; 
-                inputQuantity.setAttribute('value', 1);
+                // Reiniciamos el selector visual de la tarjeta a 1
+                if (inputQuantity) {
+                    inputQuantity.value = 1; 
+                    inputQuantity.setAttribute('value', 1);
+                }
             });
         }
-
     });
 
     // ==========================================
     // 2. LÓGICA DEL CARRITO (GESTIÓN DE DATOS)
     // ==========================================
     function agregarAlCarrito(itemNuevo) {
-        const existe = carrito.find(item => item.id === itemNuevo.id && item.diseno === itemNuevo.diseno);
+        // Para verificar duplicados consideramos ID, Tipo y Diseño (así se separan los diseños de una misma funda)
+        const existe = carrito.find(item => 
+            item.id === itemNuevo.id && 
+            item.tipo === itemNuevo.tipo && 
+            item.diseno === itemNuevo.diseno
+        );
 
         if (existe) {
-            existe.cantidad += itemNuevo.cantidad;
+            if ((existe.cantidad + itemNuevo.cantidad) <= itemNuevo.stock) {
+                existe.cantidad += itemNuevo.cantidad;
+            } else {
+                alert(`No se pudo añadir. Superarías el stock disponible de ${itemNuevo.stock} unidades.`);
+                return;
+            }
         } else {
             carrito.push(itemNuevo);
         }
@@ -126,13 +166,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const totalEl = document.getElementById('cart-total');
 
         // PROTECCIÓN CRUCIAL: Si no estamos en la página del carrito, frenamos acá 
-        // para que no rompa las demás páginas (como el catálogo)
+        // para que no rompa las demás páginas (como los catálogos)
         if (!container || !subtotalEl || !totalEl) {
             return; 
         }
 
         if (carrito.length === 0) {
-            container.innerHTML = `<p class="text-muted text-center py-4">Tu carrito está vacío.</p>`;
+            container.innerHTML = `<p class="text-muted text-center py-5">Tu carrito está vacío.</p>`;
             subtotalEl.innerText = formatearMoneda(0);
             totalEl.innerText = formatearMoneda(0);
             return;
@@ -145,6 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const subtotalItem = item.precio * item.cantidad;
             subtotalGeneral += subtotalItem;
 
+            // Si tiene variante de diseño, la mostramos elegantemente
             const infoDiseno = item.diseno 
                 ? `<p class="item-variant text-muted mb-1">Diseño elegido: <b>${item.diseno}</b></p>` 
                 : '';
@@ -195,8 +236,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (btnPlus) {
                 btnPlus.addEventListener('click', () => {
-                    carrito[index].cantidad += 1;
-                    guardarYActualizar();
+                    const item = carrito[index];
+                    
+                    // Validamos que no supere el stock que guardamos en el objeto original
+                    if (item.cantidad < item.stock) {
+                        item.cantidad += 1;
+                        guardarYActualizar();
+                    } else {
+                        alert(`No puedes agregar más unidades. El stock disponible actual es de ${item.stock}.`);
+                    }
                 });
             }
 
@@ -218,7 +266,34 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Ejecución inicial preventiva
+    // Ejecución inicial preventiva de renderizado y burbuja
     renderizarCarrito();
     actualizarNavbarBadge();
+
+    // ==========================================
+    // 3. ENVÍO DEL CARRITO AL CONTROLADOR
+    // ==========================================
+    const formCheckout = document.getElementById('form-finalizar-compra');
+    if (formCheckout) {
+        formCheckout.addEventListener('submit', (e) => {
+            const inputDatos = document.getElementById('carrito-datos-input');
+            
+            if (carrito.length === 0) {
+                e.preventDefault();
+                alert("Tu carrito está vacío. Añade productos antes de finalizar tu compra.");
+                return;
+            }
+            
+            // Convertimos el array 'carrito' completo a texto JSON para que Laravel lo pueda leer
+            inputDatos.value = JSON.stringify(carrito); 
+        });
+    }
+
+    // Si Laravel nos avisa en el indicador o sesión que la compra fue exitosa, borramos el localStorage
+    if (document.getElementById('compra-exitosa-indicador') || window.location.search.includes('compra_exitosa')) {
+        localStorage.removeItem('carrito');
+        carrito = [];
+        actualizarNavbarBadge();
+        renderizarCarrito();
+    }
 });
