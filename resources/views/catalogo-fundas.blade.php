@@ -24,8 +24,8 @@
 
                     <div class="product-info">
                         <h3 class="product-model">{{ $funda->marca }} - {{ $funda->nombre }}</h3>
-                        <p class="text-muted mb-0">Compatibilidad: {{ $funda->modelo }}</p>
-                        <small class="text-muted">Diseños disponibles: {{ $funda->disenos }}</small>
+                        <p class="text-muted mb-0"> {{ $funda->modelo }}</p>
+                        <small class="text-muted">disponibles: {{ $funda->disenos }}</small>
                         <p class="product-price">${{ number_format($funda->precio, 0, ',', '.') }}</p>
                     </div>
 
