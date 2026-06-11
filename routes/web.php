@@ -7,7 +7,11 @@ use App\Http\Controllers\catalogoComeCablesController;
 use App\http\Controllers\AuthController;
 use App\Http\Controllers\ConsultaController;
 use App\Http\Controllers\ProductoController;
+<<<<<<< Updated upstream
 use App\Http\Controllers\AdminController;
+=======
+use App\Http\Controllers\CarritoController;
+>>>>>>> Stashed changes
 
 Route::get('/', function () {
     return view('welcome');
@@ -77,3 +81,4 @@ Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
     
     Route::delete('/productos/{producto}', [ProductoController::class, 'destroy'])->name('products.destroy');
 });
+Route::post('/carrito/finalizar', [CarritoController::class, 'finalizarCompra'])->name('carrito.finalizar');
