@@ -54,15 +54,18 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item"><a class="nav-link" href="{{ route('principal') }}">Principal</a></li>
+                            
+                            {{-- UNICA MODIFICACIÓN: Se reordenaron las directivas y se cambió la ruta a admin.index --}}
                             @auth
-                            @if(Auth::user()->perfil_id === 2)
-                                <li class="nav-item animate-pulse">
-                                    <a class="nav-link" href="{{ route('admin.dashboard') }}" style="color: #f9edb9; font-weight: 600;">
-                                        <i class="bi bi-shield-lock-fill me-1"></i> Admin Panel
-                                    </a>
-                                </li>
+                                @if(Auth::user()->perfil_id === 2)
+                                    <li class="nav-item animate-pulse">
+                                        <a class="nav-link" href="{{ route('admin.index') }}" style="color: #f9edb9; font-weight: 600;">
+                                            <i class="bi bi-shield-lock-fill me-1"></i> Admin Panel
+                                        </a>
+                                    </li>
+                                @endif
                             @endauth
-                            @endif
+
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Productos</a>
                                 <ul class="dropdown-menu">

@@ -120,5 +120,6 @@ class ProductoController extends Controller
     {
        $producto->delete(); // Ejecuta el SoftDelete (borrado lógico) que definiste en el modelo
         
-        return redirect()->route('admin.index')->with('success', 'El producto ha sido dado de baja lógicamente.');
+        return redirect()->route('admin.index')->with('success', 'El producto ha sido dado de baja correctamente.');
+}
 }
