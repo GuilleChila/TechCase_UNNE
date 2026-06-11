@@ -16,7 +16,6 @@
             
             {{-- Añadimos las clases y data correspondientes para que funcione con carrito.js --}}
             <div class="col-md-5 product-card" 
-
                 data-id="{{ $funda->id }}"
                 data-tipo="funda"
                 data-nombre="{{ $funda->marca }} - {{ $funda->nombre }}"
@@ -37,30 +36,23 @@
                    ${{ number_format($funda->precio, 0, ',', '.') }}
                 </div>
 
-                <div class="design-section">
-                    <label>DISEÑO</label>
-                    <div class="design-grid">
-                        @for ($i = 1; $i <= ($funda->disenos ?? 1); $i++)
-                            <input type="radio" class="btn-check" name="diseno" id="d{{$i}}" value="{{ $i }}" {{ $i==1 ? 'checked' : '' }}>
-                            <label class="design-option" for="d{{$i}}">{{ $i }}</label>
-                        @endfor
-                    </div>
                 {{-- Muestra sutil del stock al usuario --}}
                 <div class="mb-3">
-                    @if(($funda['stock'] ?? 0) == 0)
+                    @if(($funda->stock ?? 0) == 0)
                         <span class="badge bg-danger">Agotado temporalmente</span>
-                    @elseif(($funda['stock'] ?? 0) <= 3)
-                        <span class="badge bg-warning text-dark">¡Solo quedan {{ $funda['stock'] }} unidades!</span>
+                    @elseif(($funda->stock ?? 0) <= 3)
+                        <span class="badge bg-warning text-dark">¡Solo quedan {{ $funda->stock }} unidades!</span>
                     @else
                         <span class="badge bg-success text-white">Disponible</span>
                     @endif
                 </div>
 
-                @if(($funda['stock'] ?? 0) > 0)
+                @if(($funda->stock ?? 0) > 0)
+                    {{-- Bloque de diseño limpio y unificado --}}
                     <div class="design-section">
                         <label>DISEÑO</label>
                         <div class="design-grid">
-                            @for ($i = 1; $i <= ($funda['disenos'] ?? 5); $i++)
+                            @for ($i = 1; $i <= ($funda->disenos ?? 1); $i++)
                                 <input type="radio" class="btn-check" name="diseno" id="d{{$i}}" value="{{ $i }}" {{ $i==1 ? 'checked' : '' }}>
                                 <label class="design-option" for="d{{$i}}">{{ $i }}</label>
                             @endfor
