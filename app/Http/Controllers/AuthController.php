@@ -8,9 +8,6 @@ use Illuminate\Http\Request;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegistroRequest;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Usuario;
-use Illuminate\Support\Facades\Hash;
-
 class AuthController extends Controller
 {
     public function login(LoginRequest $request)

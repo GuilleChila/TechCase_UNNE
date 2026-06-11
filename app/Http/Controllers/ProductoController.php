@@ -110,7 +110,7 @@ class ProductoController extends Controller
     // 3. Guardamos los cambios
     $producto->update($datosValidados);
 
-    return redirect()->route('productos.index')->with('success', 'Producto actualizado correctamente.');
+    return redirect()->route('admin.index')->with('success', 'Producto actualizado correctamente.');
     }
 
     /**

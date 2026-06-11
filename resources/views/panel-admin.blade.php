@@ -83,11 +83,11 @@
         <tbody>
             @foreach($consultas as $consulta)
             <tr>
-                <td style="background-color: #fff; padding: 16px; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; border-left: 1px solid #e2e8f0; border-top-left-radius: 14px; border-bottom-left-radius: 14px;"><strong>{{ $consulta->nombre_completo }}</strong></td>
-                <td style="background-color: #fff; padding: 16px; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">{{ $consulta->email }}</td>
+                <td style="background-color: #fff; padding: 16px; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; border-left: 1px solid #e2e8f0; border-top-left-radius: 14px; border-bottom-left-radius: 14px;"><strong>{{ $consulta->nombre }}</strong></td>
+                <td style="background-color: #fff; padding: 16px; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">{{ $consulta->correo }}</td>
                 <td style="background-color: #fff; padding: 16px; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">{{ $consulta->telefono ?? '---' }}</td>
                 <td style="background-color: #fff; padding: 16px; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;"><span style="background-color: #edf2f7; color: #2b6cb0; padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: bold;">{{ $consulta->motivo }}</span></td>
-                <td style="background-color: #fff; padding: 16px; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; border-right: 1px solid #e2e8f0; border-top-right-radius: 14px; border-bottom-right-radius: 14px;">{{ $consulta->detalles }}</td>
+                <td style="background-color: #fff; padding: 16px; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; border-right: 1px solid #e2e8f0; border-top-right-radius: 14px; border-bottom-right-radius: 14px;">{{ $consulta->mensaje }}</td>
             </tr>
             @endforeach
         </tbody>
