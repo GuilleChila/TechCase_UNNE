@@ -5,69 +5,65 @@ namespace App\Http\Controllers;
 use App\Models\Carrito;
 use Illuminate\Http\Request;
 use App\Models\Producto;
-use App\Models\CategoriaProducto; 
-
+use App\Models\CategoriaProducto;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class CarritoController extends Controller
 {
     public function finalizarCompra(Request $request)
-    {
-        // Convertimos el JSON que envía JavaScript a un array de PHP
-        $carritoItems = json_decode($request->input('carrito_datos'), true);
+{
+    // 1. Obtener el texto JSON enviado desde el formulario de JavaScript
+    $productosRaw = $request->input('carrito_datos');
+    $contenidoCarrito = json_decode($productosRaw, true); // Lo transformamos en array de PHP
 
-        if (empty($carritoItems)) {
-            return redirect()->back()->with('error', 'El carrito está vacío o no se pudo procesar.');
-        }
-
-        // Iniciamos una transacción de Base de Datos para asegurar la consistencia del Stock
-        DB::beginTransaction();
-
-        try {
-            // ==========================================
-            // 2. PRIMERA PASADA: Validar que HAYA stock real de todo
-            // ==========================================
-            foreach ($carritoItems as $item) {
-                
-                // Buscamos el registro en tu única tabla de productos usando su ID y bloqueamos la fila
-                $producto = Producto::lockForUpdate()->find($item['id']);
-
-                if (!$producto) {
-                    throw new \Exception("El producto '{$item['nombre']}' ya no está disponible en nuestro catálogo.");
-                }
-
-                // Validación de cantidades solicitadas vs base de datos
-                if ($producto->stock < $item['cantidad']) {
-                    throw new \Exception("Lo sentimos, el stock de '{$item['nombre']}' cambió hace instantes. Solo quedan {$producto->stock} unidades disponibles.");
-                }
-            }
-
-            // ==========================================
-            // 3. SEGUNDA PASADA: Si todo está OK, DESCONTAMOS el stock
-            // ==========================================
-            foreach ($carritoItems as $item) {
-                
-                // Buscamos el producto en el modelo único
-                $producto = Producto::find($item['id']);
-                
-                // Reducimos las existencias de forma segura
-                $producto->decrement('stock', $item['cantidad']);
-            }
-
-            // Confirmamos de forma definitiva la persistencia en la base de datos
-            DB::commit();
-
-            // Redirigimos al Home con la señal de éxito
-            return redirect()->route('principal')->with('compra_exitosa', '¡Tu compra en TechCase se realizó con éxito!');
-
-        } catch (\Exception $e) {
-            // Si algo falla, cancelamos cualquier descuento parcial ejecutado
-            DB::rollBack();
-
-            // Regresamos al carrito informando el error exacto
-            return redirect()->back()->with('error', $e->getMessage());
-        }
+    // Validamos que el array no haya llegado vacío
+    if (empty($contenidoCarrito)) {
+        return redirect()->back()->with('error', 'El carrito se encuentra vacío o no se pudieron procesar los datos.');
     }
+
+    // Aseguramos que el usuario esté logueado, ya que 'usuario_id' no es nullable en tu migración
+    if (!Auth::check()) {
+        return redirect()->route('login')->with('error', 'Debes iniciar sesión para finalizar la compra.');
+    }
+
+    // Iniciamos una transacción para que impacte TODO o NADA
+    DB::beginTransaction();
+
+    try {
+        // 2. Crear e impactar el registro principal en la tabla 'carritos'
+        $carrito = new Carrito();
+        $carrito->usuario_id = Auth::id(); // Llave foránea exacta de tu migración
+        $carrito->save();
+
+        // 3. Vincular los productos usando la relación BelongsToMany de Eloquent
+        foreach ($contenidoCarrito as $item) {
+            
+            // Buscamos el producto en la tabla maestra 'productos' para asegurarnos de que exista
+            $producto = Producto::find($item['id']);
+            
+            if ($producto) {
+                // El método attach() inserta directamente en la tabla pivote 'carrito_producto'
+                $carrito->productos()->attach($producto->id, [
+                    'cantidad' => $item['cantidad']
+                ]);
+            }
+        }
+
+        // Si todo salió bien de manera atómica, guardamos definitivamente en la base de datos
+        DB::commit();
+
+        // 4. REDIRECCIÓN TEMPORAL: Enviamos a la página principal con el parámetro de éxito
+        // Conservamos '?compra_exitosa=true' para que tu carrito.js limpie automáticamente el localStorage
+        return redirect()->to('/?compra_exitosa=true')
+                         ->with('success', '¡Compra registrada con éxito en la base de datos!');
+
+    } catch (\Exception $e) {
+        // Si algo falla, cancelamos los inserts para evitar datos huérfanos o corruptos
+        DB::rollBack();
+        return redirect()->back()->with('error', 'Error al procesar la venta en el sistema: ' . $e->getMessage());
+    }
+}
     /**
      * Display a listing of the resource.
      */
