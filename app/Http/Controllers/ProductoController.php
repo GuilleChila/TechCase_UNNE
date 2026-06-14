@@ -50,6 +50,9 @@ class ProductoController extends Controller
             'categoria_id.exists'   => 'La categoría seleccionada no es válida.',
             'marca.required'        => 'La marca es obligatoria.',
             'disenos.required'      => 'La cantidad de diseños es obligatoria.',
+            'imagen.image'          => 'El campo imagen debe ser una imagen válida.',
+            'imagen.mimes'          => 'La imagen debe ser un archivo de tipo: jpeg, png, jpg, webp.',
+            'categoria_id.required' => 'La categoría es obligatoria.',
         ]); 
 
         // 2. PROCESAMIENTO DE LA IMAGEN
@@ -122,4 +125,14 @@ class ProductoController extends Controller
         
         return redirect()->route('admin.index')->with('success', 'El producto ha sido dado de baja correctamente.');
 }
+public function activar($id)
+    {
+        // Buscamos el producto incluyendo los que están borrados lógicamente
+        $producto = Producto::withTrashed()->findOrFail($id);
+        
+        // Lo restauramos en la base de datos
+        $producto->restore();
+
+        return redirect()->route('admin.index')->with('success', 'El producto ha sido activado correctamente.');
+    }
 }

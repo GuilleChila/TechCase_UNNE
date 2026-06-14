@@ -66,6 +66,8 @@ Route::post('/contacto', [ConsultaController::class, 'store'])->name('contacto.p
 
 Route::resource('productos', ProductoController::class);
 
+Route::patch('/productos/{id}/activar', [ProductoController::class, 'activar'])->name('productos.activar');
+
 Route::get('/admin-dashboard', function () {
     return "¡Espectacular Guillermo! Lograste iniciar sesión como Administrador en TechCase.";
 })->name('admin.dashboard')->middleware('admin');
