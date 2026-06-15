@@ -81,3 +81,5 @@ Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
     Route::delete('/productos/{producto}', [ProductoController::class, 'destroy'])->name('products.destroy');
 });
 Route::post('/carrito/finalizar', [CarritoController::class, 'finalizarCompra'])->name('carrito.finalizar');
+
+Route::get('/carrito/resumen', [CarritoController::class, 'mostrarResumen'])->name('carrito.resumen')->middleware('auth');

@@ -1135,3 +1135,274 @@ select,
 .btn-apple-logout:active {
     transform: scale(0.92); /* Sensación física de click */
 }
+
+/* ==========================================================================
+   VISTA RESUMEN DE COMPRA - ESTILO APPLE MINIMALIST PREMIUM
+   ========================================================================== */
+
+/* Contenedor Principal global */
+.summary-wrapper {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 24px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #1d1d1f;
+    background-color: #fafafa; /* Fondo muy claro limpio estilo Apple Store */
+}
+
+/* Encabezado Superior */
+.summary-main-header {
+    text-align: left;
+    margin-bottom: 32px;
+}
+
+.summary-main-header h1 {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: #1d1d1f;
+    margin-bottom: 8px;
+}
+
+.summary-main-header p {
+    font-size: 16px;
+    color: #86868b;
+    margin: 0;
+}
+
+/* Grilla de 2 columnas alineadas en una sola fila */
+.summary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+/* Tarjeta Premium con Marco Negro Fino (Inspirada en Quienes Somos) */
+.apple-card-premium {
+    background: #ffffff;
+    border: 1px solid #1d1d1f; /* Remarco negro fino premium */
+    border-radius: 18px;       /* Bordes curvos orgánicos suaves */
+    padding: 32px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02); /* Sombra casi imperceptible */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.apple-card-premium h2 {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    color: #1d1d1f;
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+/* Badge de Orden ID */
+.apple-badge-premium {
+    background-color: #f5f5f7;
+    color: #1d1d1f;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-family: monospace;
+}
+
+.card-header-split {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+/* Subtítulos de sección */
+.section-subtitle-premium {
+    font-size: 14px;
+    color: #6e6e73;
+    margin-top: -8px;
+    margin-bottom: 24px;
+    line-height: 1.4;
+}
+
+/* Filas de Información del Cliente */
+.user-static-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.info-row-premium {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    line-height: 1.2;
+}
+
+.info-label-premium {
+    color: #86868b;
+    font-weight: 400;
+}
+
+.info-value-premium {
+    color: #1d1d1f;
+    font-weight: 500;
+    text-align: right;
+}
+
+/* Líneas Divisoras Internas */
+.summary-divider-premium {
+    border: 0;
+    border-top: 1px solid #e5e5e7;
+    margin: 24px 0;
+}
+
+/* Estilos de las Filas de Productos Dinámicos */
+.products-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.product-summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.product-summary-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.product-summary-img {
+    width: 52px;
+    height: 52px;
+    object-fit: cover;
+    border-radius: 10px;
+    background: #f5f5f7;
+    border: 1px solid #f0f0f2;
+}
+
+.product-summary-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: #1d1d1f;
+    margin: 0 0 4px 0;
+}
+
+.product-summary-qty {
+    font-size: 13px;
+    color: #86868b;
+    margin: 0;
+}
+
+.product-summary-subtotal {
+    font-size: 15px;
+    font-weight: 500;
+    color: #1d1d1f;
+}
+
+/* Contenedor e Indicadores del Total (EN NEGRITA EXTREMA) */
+.total-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.total-label-premium {
+    font-size: 18px;
+    font-weight: 700; /* Remarcado en negrita fuerte */
+    color: #1d1d1f;
+}
+
+.total-amount-premium {
+    font-size: 20px;
+    font-weight: 700; /* Remarcado en negrita fuerte */
+    color: #1d1d1f;
+}
+
+/* Elementos de Entrada (Inputs y Textareas estilo Apple) */
+.input-group-apple {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.input-group-apple label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1d1d1f;
+}
+
+.apple-input, .apple-textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #d2d2d7;
+    border-radius: 12px;
+    font-size: 15px;
+    color: #1d1d1f;
+    background-color: #ffffff;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.apple-input:focus, .apple-textarea:focus {
+    border-color: #1d1d1f;
+    box-shadow: 0 0 0 3px rgba(29, 29, 31, 0.05);
+}
+
+.apple-textarea {
+    resize: none;
+}
+
+/* Botón inferior de WhatsApp - Ancho Completo Premium */
+.summary-action-container {
+    margin-top: 32px;
+    width: 100%;
+}
+
+.whatsapp-btn-premium {
+    width: 100%;
+    background-color: #25d366; /* Verde original WhatsApp brillante e interactivo */
+    color: #ffffff;
+    border: none;
+    border-radius: 14px;
+    padding: 16px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.whatsapp-btn-premium:hover {
+    background-color: #20ba56;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+}
+
+.whatsapp-btn-premium:active {
+    transform: translateY(0);
+}
+
+/* Responsividad para pantallas móviles */
+@media (max-width: 768px) {
+    .summary-grid {
+        grid-template-columns: 1fr; /* Colapsa en una columna si es un teléfono */
+        gap: 20px;
+    }
+    
+    .apple-card-premium {
+        padding: 20px;
+    }
+}

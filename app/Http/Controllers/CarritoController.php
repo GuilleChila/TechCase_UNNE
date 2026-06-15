@@ -55,15 +55,26 @@ class CarritoController extends Controller
 
         // 4. REDIRECCIÓN TEMPORAL: Enviamos a la página principal con el parámetro de éxito
         // Conservamos '?compra_exitosa=true' para que tu carrito.js limpie automáticamente el localStorage
-        return redirect()->to('/?compra_exitosa=true')
-                         ->with('success', '¡Compra registrada con éxito en la base de datos!');
-
+        return redirect()->route('carrito.resumen')->with('compra_exitosa', '¡Tu pedido fue procesado!');
     } catch (\Exception $e) {
         // Si algo falla, cancelamos los inserts para evitar datos huérfanos o corruptos
         DB::rollBack();
         return redirect()->back()->with('error', 'Error al procesar la venta en el sistema: ' . $e->getMessage());
     }
 }
+public function mostrarResumen()
+    {
+        // 1. Validar que el usuario esté logueado
+        if (!Auth::check()) {
+            return redirect()->route('login')->with('error', 'Debes iniciar sesión para ver el resumen.');
+        }
+
+        // 2. Obtener los datos del usuario autenticado de la base de datos
+        $user = Auth::user();
+
+        // 3. Pasar el usuario a la vista usando compact()
+        return view('resumen-compra', compact('user'));
+    }
     /**
      * Display a listing of the resource.
      */
