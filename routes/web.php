@@ -83,3 +83,7 @@ Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
 Route::post('/carrito/finalizar', [CarritoController::class, 'finalizarCompra'])->name('carrito.finalizar');
 
 Route::get('/carrito/resumen', [CarritoController::class, 'mostrarResumen'])->name('carrito.resumen')->middleware('auth');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/mi-perfil', [CarritoController::class, 'mostrarPerfil'])->name('cliente.perfil');
+});
