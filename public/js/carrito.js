@@ -1,8 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log("¡Script de carrito de TechCase cargado correctamente!");
 
-    // Inicializar carrito desde LocalStorage
-    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    // 1. OBTENER IDENTIFICADOR ÚNICO DE USUARIO
+    // Buscamos el ID del usuario autenticado desde la meta tag del HTML
+    const userMeta = document.querySelector('meta[name="user-id"]');
+    const userId = userMeta ? userMeta.getAttribute('content') : 'invitado';
+    
+    // La clave ahora cambia dinámicamente según el usuario logueado para aislar los carritos
+    const storageKey = `carrito_user_${userId}`;
+
+    // Inicializar carrito desde LocalStorage usando la clave única por usuario
+    let carrito = JSON.parse(localStorage.getItem(storageKey)) || [];
 
     // Helper para formatear dinero (Ej: 5500 -> $5.500)
     const formatearMoneda = (valor) => {
@@ -132,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function guardarYActualizar() {
-        localStorage.setItem('carrito', JSON.stringify(carrito));
+        localStorage.setItem(storageKey, JSON.stringify(carrito));
         renderizarCarrito();
         actualizarNavbarBadge();
     }
@@ -271,7 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
     actualizarNavbarBadge();
 
     // ==========================================
-    // 3. ENVÍO DEL CARRITO AL CONTROLADOR
+    // 4. ENVÍO DEL CARRITO AL CONTROLADOR
     // ==========================================
     const formCheckout = document.getElementById('form-finalizar-compra');
     if (formCheckout) {
@@ -289,9 +297,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Si Laravel nos avisa en el indicador o sesión que la compra fue exitosa, borramos el localStorage
-    if (document.getElementById('compra-exitosa-indicador') || window.location.search.includes('compra_exitosa')) {
-        localStorage.removeItem('carrito');
+    // Si la compra fue exitosa (indicada por el backend en la sesión o URL), borramos el localStorage específico
+    const indicadorExito = document.getElementById('compra-exitosa-indicador');
+    if (indicadorExito) {
+        console.log("¡Compra exitosa confirmada");
+        localStorage.removeItem(storageKey);
         carrito = [];
         actualizarNavbarBadge();
         renderizarCarrito();

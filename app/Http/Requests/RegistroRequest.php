@@ -31,8 +31,8 @@ class RegistroRequest extends FormRequest
     }
     public function messages(): array{
         return [
-        'nombre.required' => 'Este campo es obligatorio.',
-        'nombre.max' => 'Máximo de 150 caracteres.',
+        'name.required' => 'Este campo es obligatorio.',
+        'name.max' => 'Máximo de 150 caracteres.',
         'documento.required' => 'Este campo es obligatorio.',
         'documento.size' => 'El DNI debe tener exactamente 8 digitos.',
         'email.required' => 'Este campo es obligatorio.',

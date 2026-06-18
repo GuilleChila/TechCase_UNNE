@@ -26,7 +26,7 @@ class ContactoRequest extends FormRequest
             'nombre' => 'required|string|max:150',
             'correo'=>'required|email',
             'telefono'=>'required|size:10',
-            'motivo'=> 'required|in:ventas, soporte, envios, otros',
+            'motivo'=> 'required|in:ventas,soporte,envios,otros',
             'mensaje'=>'required|max:500',
         ];
     }

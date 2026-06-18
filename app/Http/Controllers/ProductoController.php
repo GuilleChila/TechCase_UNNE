@@ -18,7 +18,7 @@ class ProductoController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     */
+     */     
     public function create()
     {
         return view('productos.create');
@@ -97,23 +97,70 @@ class ProductoController extends Controller
      */
     public function update(Request $request, Producto $producto)
     {
-        // 1. Reglas base para TODOS los productos
-    $reglas = [
-        'precio' => 'required|numeric|min:0',
-        'stock'  => 'required|integer|min:0',
-    ];
+        // 1. Reglas base para todos los productos
+        $reglas = [
+            'nombre'       => 'required|string|max:150',
+            'modelo'       => 'required|string|max:150',
+            'precio'       => 'required|numeric|min:0',
+            'stock'        => 'required|integer|min:0',
+            'categoria_id' => 'required|integer|exists:categoria_productos,categoria_id',
+            'marca'        => 'required|string|max:100',
+            'imagen'       => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+        ];
 
-    // 2. Si es FUNDA, también permitimos y validamos los diseños
-    if ($producto->categoria_id == 1) {
-        $reglas['disenos'] = 'required|integer|min:0';
-    }
+        // 2. Regla condicional basada en el Request de la categoría elegida
+        if ($request->input('categoria_id') == 1) {
+            $reglas['disenos'] = 'required|integer|min:0';
+        } else {
+            $reglas['disenos'] = 'nullable';
+        }
 
-    $datosValidados = $request->validate($reglas);
+        // 3. Validación exhaustiva con los mensajes personalizados en español
+        $datosValidados = $request->validate($reglas, [
+            'nombre.required'       => 'El nombre del producto es obligatorio.',
+            'modelo.required'       => 'El modelo es obligatorio.',
+            'precio.required'       => 'El precio es obligatorio.',
+            'precio.numeric'        => 'El precio debe ser un número válido.',
+            'stock.required'        => 'El stock es obligatorio.',
+            'stock.integer'         => 'El stock debe ser un número entero.',
+            'categoria_id.required' => 'La categoría es obligatoria.',
+            'categoria_id.exists'   => 'La categoría seleccionada no es válida.',
+            'marca.required'        => 'La marca es obligatoria.',
+            'disenos.required'      => 'La cantidad de diseños es obligatoria para las Fundas.',
+            'imagen.image'          => 'El archivo seleccionado debe ser una imagen válida.',
+            'imagen.mimes'          => 'La imagen debe ser un archivo de tipo: jpeg, png, jpg, webp.',
+            'imagen.max'            => 'La imagen no debe pesar más de 2MB.',
+        ]);
 
-    // 3. Guardamos los cambios
-    $producto->update($datosValidados);
+        // 4. Tratamiento si se cambia de categoría (Limpieza de negocio)
+        if ($datosValidados['categoria_id'] != 1) {
+            $datosValidados['disenos'] = 0; // Si ya no es funda, reseteamos los diseños a 0
+        }
 
-    return redirect()->route('admin.index')->with('success', 'Producto actualizado correctamente.');
+        // 5. Reemplazo dinámico de la imagen si se cargó un archivo nuevo
+        if ($request->hasFile('imagen')) {
+            $imagen = $request->file('imagen');
+            $nombreImagen = time() . '_' . $imagen->getClientOriginalName();
+            
+            // Movemos la nueva imagen a public/img/
+            $imagen->move(public_path('img'), $nombreImagen);
+            
+            // Si el producto ya tenía una imagen vieja asignada, la borramos para no acumular basura
+            if ($producto->imagen && file_exists(public_path('img/' . $producto->imagen))) {
+                @unlink(public_path('img/' . $producto->imagen));
+            }
+            
+            // Guardamos el nuevo nombre del archivo en el array a actualizar
+            $datosValidados['imagen'] = $nombreImagen;
+        } else {
+            // Si no subió una imagen nueva, removemos el índice del array para conservar la actual
+            unset($datosValidados['imagen']);
+        }
+
+        // 6. Guardamos todos los cambios usando Mass Assignment de Eloquent
+        $producto->update($datosValidados);
+
+        return redirect()->route('admin.index')->with('success', '¡El producto ha sido modificado exitosamente en el catálogo!');
     }
 
     /**
