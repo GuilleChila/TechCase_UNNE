@@ -43,10 +43,19 @@ class CarritoController extends Controller
             $producto = Producto::find($item['id']);
             
             if ($producto) {
-                // El método attach() inserta directamente en la tabla pivote 'carrito_producto'
-                $carrito->productos()->attach($producto->id, [
-                    'cantidad' => $item['cantidad']
-                ]);
+               // --- NUEVA VALIDACIÓN DE STOCK EN SERVIDOR ---
+        if ($producto->stock < $item['cantidad']) {
+            throw new \Exception("El producto '{$producto->nombre}' no tiene suficiente stock disponible.");
+        }
+
+        // El método attach() inserta directamente en la tabla pivote
+        $carrito->productos()->attach($producto->id, [
+            'cantidad' => $item['cantidad']
+        ]);
+
+        // --- ACTUALIZACIÓN DE STOCK EN LA BD ---
+        $producto->stock -= $item['cantidad'];
+        $producto->save();
             }
         }
 

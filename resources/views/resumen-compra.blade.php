@@ -1,12 +1,24 @@
 @extends('plantillas.app')
 
 @section('content')
+{{-- DETONADOR SEGURO: Al estar arriba del DOM, se evalúa antes de que el script ejecute la sección 5 --}}
+@if(session('compra_exitosa'))
+    <div id="compra-exitosa-indicador" style="display: none;"></div>
+@endif
+
 <div class="summary-wrapper">
     
     <div class="summary-main-header">
         <h1>Confirma tu Pedido</h1>
         <p>Revisa la información detallada antes de enviar el pedido a la tienda.</p>
     </div>
+
+    {{-- Notificación elegante si la base de datos ya procesó el pedido --}}
+    @if(session('compra_exitosa'))
+        <div class="alert alert-success border-0 rounded-3 small p-3 mb-4 text-center" style="background-color: #f2faf5; color: #147a32; font-family: 'Inter', sans-serif; font-weight: 500;">
+            <i class="bi bi-check-circle-fill me-2"></i> {{ session('compra_exitosa') }}
+        </div>
+    @endif
 
     <div class="summary-grid">
         
@@ -17,7 +29,8 @@
             </div>
             
             <div id="summary-products-list" class="products-list-container">
-                </div>
+                {{-- Los items del localStorage se inyectan acá de forma dinámica --}}
+            </div>
             
             <hr class="summary-divider-premium">
             
@@ -70,8 +83,13 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Inicializar datos desde LocalStorage
-    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    // 1. OBTENER IDENTIFICADOR ÚNICO DE USUARIO (Misma lógica exacta que carrito.js)
+    const userMeta = document.querySelector('meta[name="user-id"]');
+    const userId = userMeta ? userMeta.getAttribute('content') : 'invitado';
+    const storageKey = `carrito_user_${userId}`;
+
+    // Inicializar datos desde LocalStorage usando la clave aislada por usuario
+    let carrito = JSON.parse(localStorage.getItem(storageKey)) || [];
     const productsContainer = document.getElementById('summary-products-list');
     const totalPriceEl = document.getElementById('summary-total-price');
     
@@ -156,26 +174,37 @@ document.addEventListener('DOMContentLoaded', () => {
             const ubicacion = inputLocation.value.trim();
             const telefono = inputPhone.value.trim();
 
-            // Validar campos requeridos antes de despachar
             if (!telefono || !ubicacion) {
                 alert("Por favor, completa tu teléfono y dirección de envío para poder coordinar la entrega.");
                 return;
             }
 
             const mensajeFinal = obtenerMensajeTexto();
-            const telefonoDueno = "5493624075659"; // Tu número de WhatsApp corporativo
+            const telefonoDueno = "5493624075659"; 
 
-            // Codificar el mensaje final
             const mensajeCodificado = encodeURIComponent(mensajeFinal);
             const urlWhatsapp = `https://api.whatsapp.com/send?phone=${telefonoDueno}&text=${mensajeCodificado}`;
 
-            // Vaciar el carrito de localStorage inmediatamente
-            localStorage.removeItem('carrito');
-
-            // Abrir la pestaña de WhatsApp y redirigir
+            // Abrir la pestaña de WhatsApp para despachar el mensaje
             window.open(urlWhatsapp, '_blank');
-            window.location.href = "/principal";
+            
+            // Redirigir suavemente al catálogo o principal
+            window.location.href = "{{ route('catalogo-fundas') }}";
         });
+    }
+
+    // ==========================================
+    // 5. LIMPIEZA POST-RENDERING CONTROLADA
+    // ==========================================
+    // El LocalStorage específico se vacía una vez renderizado todo y SOLO si venimos del redirect exitoso de Laravel
+    const indicadorExito = document.getElementById('compra-exitosa-indicador');
+    if (indicadorExito) {
+        console.log("¡Limpiando almacenamiento local aislado de forma segura!");
+        localStorage.removeItem(storageKey);
+        // Reseteamos las variables locales para sincronizar los badges globales
+        carrito = [];
+        const badge = document.getElementById('cart-badge');
+        if (badge) badge.style.display = 'none';
     }
 });
 </script>
