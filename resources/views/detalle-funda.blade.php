@@ -30,7 +30,10 @@
                 </nav>
 
                 <h1 class="product-title">{{ $funda->marca }} - {{ $funda->nombre }}</h1>
-                <p class="text-muted">Compatibilidad: {{ $funda->modelo }}</p>
+                <p class="text-muted" style="margin-bottom: 2px;">Compatibilidad: {{ $funda->modelo }}</p>
+                
+                {{-- Se agrega la cantidad disponible abajo de la compatibilidad --}}
+                <p class="text-muted" style="margin-top: 0; margin-bottom: 15px;">Disponibles: {{ $funda->stock ?? 0 }}</p>
                 
                 <div class="product-price">
                    ${{ number_format($funda->precio, 0, ',', '.') }}

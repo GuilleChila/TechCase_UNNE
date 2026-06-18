@@ -22,10 +22,10 @@ class AuthController extends Controller
         ];
 
         if (Auth::attempt($credenciales)) {
-            // Regenerar la sesión por seguridad (evita fijación de sesiones)
+           
             $request->session()->regenerate();
 
-            // Obtenemos el objeto del usuario que acaba de loguearse
+            
             $usuarioLogueado = Auth::user();
 
             // Redirección inteligente según PerfilSeeder:
@@ -37,6 +37,9 @@ class AuthController extends Controller
         } 
 
         // Si las credenciales fallan manualmente (auth erróneo), inyectamos el error ESPECÍFICAMENTE en la bolsa 'login'
+        
+
+        
         return back()->withErrors([
             'email' => 'El correo electrónico o la contraseña son incorrectos.',
         ], 'login')->withInput($request->only('email'));

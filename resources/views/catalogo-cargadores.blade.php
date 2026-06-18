@@ -26,9 +26,8 @@
                     <div class="product-info">
                         <h3 class="product-model">{{ $cargador->marca }} - {{ $cargador->nombre }}</h3>
 
-                        @if(isset($cargador->amperaje))
-                            <small class="text-muted">Amperaje: {{ $cargador->amperaje }}</small>
-                        @endif
+                        {{-- Se muestra la cantidad disponible debajo del título --}}
+                        <small class="text-muted" style="display: block; margin-bottom: 5px;">disponibles: {{ $cargador->stock }}</small>
 
                         <p class="product-price">${{ number_format($cargador->precio, 0, ',', '.') }}</p>
                         

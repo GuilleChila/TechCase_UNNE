@@ -25,6 +25,15 @@
 
                     <div class="product-info">
                         <h3 class="product-model">{{ $comeCable->descripcion }}</h3>
+                        
+                        {{-- Nombre del comecable en letra más visible y posicionado primero --}}
+                        <strong style="display: block; font-size: 1.1rem; color: #1d1d1f; margin-top: 5px; margin-bottom: 2px;">
+                            {{ $comeCable->nombre }}
+                        </strong>
+                        
+                        {{-- Cantidad disponible debajo del nombre --}}
+                        <small class="text-muted" style="display: block; margin-bottom: 5px;">disponibles: {{ $comeCable->stock }}</small>
+
                         <p class="product-price">${{ number_format($comeCable->precio, 0, ',', '.') }}</p>
                         
                         {{-- Badge de stock --}}
