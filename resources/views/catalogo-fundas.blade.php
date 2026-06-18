@@ -21,7 +21,13 @@
                     <div class="product-info">
                         <h3 class="product-model">{{ $funda->marca }} - {{ $funda->nombre }}</h3>
                         <p class="text-muted mb-0"> {{ $funda->modelo }}</p>
-                        <small class="text-muted">disponibles: {{ $funda->disenos }}</small>
+                        
+                        {{-- Se corrige para mostrar la cantidad de diseños --}}
+                        <small class="text-muted" style="display: block;">diseños: {{ $funda->disenos }}</small>
+                        
+                        {{-- Se agrega la cantidad disponible en base al stock real --}}
+                        <small class="text-muted" style="display: block;">disponibles: {{ $funda->stock }}</small>
+                        
                         <p class="product-price">${{ number_format($funda->precio, 0, ',', '.') }}</p>
                         
                         <div class="mt-1">
