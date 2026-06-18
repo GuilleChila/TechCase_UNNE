@@ -20,6 +20,7 @@
         <thead>
             <tr style="background-color: #3b5998; color: white;">
                 <th style="padding: 14px; text-align: left; border-top-left-radius: 14px; border-bottom-left-radius: 14px;">Nombre</th>
+                <th style="padding: 14px; text-align: left;">Categoría</th>
                 <th style="padding: 14px; text-align: left;">Modelo</th>
                 <th style="padding: 14px; text-align: left;">Marca</th>
                 <th style="padding: 14px; text-align: left;">Precio</th>
@@ -33,6 +34,12 @@
                 <td style="background-color: {{ $product->activo ? '#fff' : '#ffeeef' }}; padding: 16px; border-top: 1px solid {{ $product->activo ? '#e2e8f0' : '#fca5a5' }}; border-bottom: 1px solid {{ $product->activo ? '#e2e8f0' : '#fca5a5' }}; border-left: 1px solid {{ $product->activo ? '#e2e8f0' : '#fca5a5' }}; border-top-left-radius: 14px; border-bottom-left-radius: 14px;">
                     <strong>{{ $product->nombre }}</strong>
                 </td>
+                
+                {{-- CELDA CORREGIDA: Llama al nombre de la categoría mediante su relación --}}
+                <td style="background-color: {{ $product->activo ? '#fff' : '#ffeeef' }}; padding: 16px; border-top: 1px solid {{ $product->activo ? '#e2e8f0' : '#fca5a5' }}; border-bottom: 1px solid {{ $product->activo ? '#e2e8f0' : '#fca5a5' }}; text-transform: capitalize;">
+                    {{ $product->categoria->nombreCategoria ?? 'Sin Categoría' }}
+                </td>
+
                 <td style="background-color: {{ $product->activo ? '#fff' : '#ffeeef' }}; padding: 16px; border-top: 1px solid {{ $product->activo ? '#e2e8f0' : '#fca5a5' }}; border-bottom: 1px solid {{ $product->activo ? '#e2e8f0' : '#fca5a5' }};">
                     {{ $product->modelo }}
                 </td>
@@ -46,9 +53,11 @@
                     {{ $product->stock }} u.
                 </td>
                 <td style="background-color: {{ $product->activo ? '#fff' : '#ffeeef' }}; padding: 16px; border-top: 1px solid {{ $product->activo ? '#e2e8f0' : '#fca5a5' }}; border-bottom: 1px solid {{ $product->activo ? '#e2e8f0' : '#fca5a5' }}; border-right: 1px solid {{ $product->activo ? '#e2e8f0' : '#fca5a5' }}; border-top-right-radius: 14px; border-bottom-right-radius: 14px;">
-                    <a href="{{ route('productos.edit', $product->id) }}" style="color: #2b6cb0; text-decoration: none; margin-right: 15px; font-weight: bold;">Modificar</a>
                     
+                    {{-- Condicional estricto para Modificar --}}
                     @if($product->activo)
+                        <a href="{{ route('productos.edit', $product->id) }}" style="color: #2b6cb0; text-decoration: none; margin-right: 15px; font-weight: bold;">Modificar</a>
+                        
                         <form action="{{ route('productos.destroy', $product->id) }}" method="POST" style="display: inline;" onsubmit="return confirm('¿Confirmas la baja lógica de este producto?')">
                             @csrf
                             @method('DELETE')
@@ -122,7 +131,6 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    // Revisar la memoria del navegador para cada consulta activa de tu bucle
     @foreach($consultas as $consulta)
         if (localStorage.getItem('consulta_leida_' + '{{ $consulta->id }}') === 'true') {
             pintarConsultaLeida('{{ $consulta->id }}');
@@ -147,7 +155,7 @@ function pintarConsultaLeida(id) {
 }
 </script>
 
-  <h2 style="color: #4a5568; border-left: 6px solid #3b5998; padding-left: 12px; margin-top: 50px;">Ventas Realizadas (Historial)</h2>
+<h2 style="color: #4a5568; border-left: 6px solid #3b5998; padding-left: 12px; margin-top: 50px;">Ventas Realizadas (Historial)</h2>
 <table style="width: 100%; border-collapse: separate; border-spacing: 0 12px; margin-top: 15px;">
     <thead>
         <tr style="background-color: #3b5998; color: white;">
@@ -159,6 +167,7 @@ function pintarConsultaLeida(id) {
         </tr>
     </thead>
     <tbody>
+        {{-- CORREGIDO: El colspan pasa a ser 7 para coincidir con el total de columnas --}}
         @forelse($ventas as $venta)
         <tr>
             <td style="background-color: #fff; padding: 16px; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; border-left: 1px solid #e2e8f0; border-top-left-radius: 14px; border-bottom-left-radius: 14px;">#{{ $venta->id }}</td>
@@ -259,13 +268,12 @@ function pintarConsultaLeida(id) {
             </td>
         </tr>
         @empty
-        <tr><td colspan="5" style="text-align: center; padding: 20px; background-color: #fff;">No hay ventas registradas.</td></tr>
+        <tr><td colspan="7" style="text-align: center; padding: 20px; background-color: #fff;">No hay ventas registradas.</td></tr>
         @endforelse
     </tbody>
 </table>
 
 <script>
-// 1. Cuando la página termina de cargar, revisamos qué ventas ya estaban confirmadas
 document.addEventListener("DOMContentLoaded", function() {
     @foreach($ventas as $venta)
         if (localStorage.getItem('venta_confirmada_' + '{{ $venta->id }}') === 'true') {
@@ -274,13 +282,11 @@ document.addEventListener("DOMContentLoaded", function() {
     @endforeach
 });
 
-// 2. Al hacer clic, guarda el estado en el navegador y actualiza la vista
 function guardarConfirmacionLocal(id) {
-    localStorage.setItem('venta_confirmada_' + id, 'true'); // Guardado local persistente
+    localStorage.setItem('venta_confirmada_' + id, 'true');
     pintarCompraConfirmada(id);
 }
 
-// 3. Modifica el botón por el tilde verde estilizado
 function pintarCompraConfirmada(id) {
     const contenedor = document.getElementById('contenedor-accion-' + id);
     if(contenedor) {
