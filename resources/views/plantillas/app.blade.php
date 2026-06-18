@@ -15,13 +15,19 @@
     @yield('content')
     </main>
     @include('parciales.pie-pagina')
- <div class="modal fade {{ $errors->any() ? 'show' : '' }}" id="loginModal" tabindex="-1" style="{{ $errors->any() ? 'display: block;' : '' }}">
+ @php
+    $hasLoginErrors = $errors->login->any();
+    $hasRegisterErrors = $errors->register->any();
+    $showAuthModal = $hasLoginErrors || $hasRegisterErrors;
+@endphp
+
+<div class="modal fade {{ $showAuthModal ? 'show' : '' }}" id="loginModal" tabindex="-1" style="{{ $showAuthModal ? 'display: block;' : '' }}">
   <div class="modal-dialog">
     <div class="modal-content">
 
       <div class="modal-header">
         <h5 class="modal-title" id="modalTitle">
-          {{ $errors->has('name') || $errors->has('documento') ? 'Crear cuenta' : 'Iniciar sesión' }}
+          {{ $hasRegisterErrors ? 'Crear cuenta' : 'Iniciar sesión' }}
         </h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="document.getElementById('loginModal').style.display='none'"></button>
       </div>
@@ -29,13 +35,14 @@
       <div class="modal-body">
         
         @if(session('success'))
-            <div class="alert alert-success d-flex align-items-center mb-3) apple-alert" role="alert">
+            <div class="alert alert-success d-flex align-items-center mb-3 apple-alert" role="alert">
                 <i class="bi bi-check-circle-fill me-2"></i>
                 <div>{{ session('success') }}</div>
             </div>
         @endif
 
-        <div id="loginForm" style="display: {{ $errors->has('name') || $errors->has('documento') ? 'none' : 'block' }};">
+        {{-- FORMULARIO DE INICIO DE SESIÓN --}}
+        <div id="loginForm" style="display: {{ $hasRegisterErrors ? 'none' : 'block' }};">
             <form method="POST" action="{{ route('login.post') }}" novalidate>
                 @csrf
 
@@ -44,12 +51,12 @@
                     <input type="email" 
                            name="email" 
                            value="{{ old('email') }}" 
-                           class="form-control apple-input {{ $errors->has('email') && !$errors->has('name') ? 'apple-input-error' : '' }}" 
+                           class="form-control apple-input {{ $errors->login->has('email') ? 'apple-input-error' : '' }}" 
                            placeholder="nombre@ejemplo.com">
                     
-                    @if($errors->has('email') && !$errors->has('name'))
+                    @if($errors->login->has('email'))
                         <span class="apple-error-text">
-                            <i class="bi bi-exclamation-circle-fill me-1"></i> {{ $errors->first('email') }}
+                            <i class="bi bi-exclamation-circle-fill me-1"></i> {{ $errors->login->first('email') }}
                         </span>
                     @endif
                 </div>
@@ -58,12 +65,12 @@
                     <label class="apple-label">Contraseña</label>
                     <input type="password" 
                            name="password" 
-                           class="form-control apple-input {{ $errors->has('password') && !$errors->has('name') ? 'apple-input-error' : '' }}" 
+                           class="form-control apple-input {{ $errors->login->has('password') ? 'apple-input-error' : '' }}" 
                            placeholder="Mínimo 8 caracteres">
                     
-                    @if($errors->has('password') && !$errors->has('name'))
+                    @if($errors->login->has('password'))
                         <span class="apple-error-text">
-                            <i class="bi bi-exclamation-circle-fill me-1"></i> {{ $errors->first('password') }}
+                            <i class="bi bi-exclamation-circle-fill me-1"></i> {{ $errors->login->first('password') }}
                         </span>
                     @endif
                 </div>
@@ -79,7 +86,8 @@
             </div>
         </div>
 
-        <div id="registerForm" style="display: {{ $errors->has('name') || $errors->has('documento') ? 'block' : 'none' }};">
+        {{-- FORMULARIO DE CREAR CUENTA --}}
+        <div id="registerForm" style="display: {{ $hasRegisterErrors ? 'block' : 'none' }};">
             <form method="POST" action="{{ route('register.post') }}" novalidate>
                 @csrf
 
@@ -88,14 +96,14 @@
                     <input type="text" 
                            name="name" 
                            value="{{ old('name') }}" 
-                           class="form-control apple-input {{ $errors->has('name') ? 'apple-input-error' : '' }}" 
+                           class="form-control apple-input {{ $errors->register->has('name') ? 'apple-input-error' : '' }}" 
                            placeholder="Tu nombre completo">
                     
-                    @error('name')
+                    @if($errors->register->has('name'))
                         <span class="apple-error-text">
-                            <i class="bi bi-exclamation-circle-fill me-1"></i> {{ $message }}
+                            <i class="bi bi-exclamation-circle-fill me-1"></i> {{ $errors->register->first('name') }}
                         </span>
-                    @enderror
+                    @endif
                 </div>
 
                 <div class="mb-3">
@@ -103,27 +111,27 @@
                     <input type="text" 
                            name="documento" 
                            value="{{ old('documento') }}" 
-                           class="form-control apple-input {{ $errors->has('documento') ? 'apple-input-error' : '' }}" 
+                           class="form-control apple-input {{ $errors->register->has('documento') ? 'apple-input-error' : '' }}" 
                            placeholder="DNI o Pasaporte">
                     
-                    @error('documento')
+                    @if($errors->register->has('documento'))
                         <span class="apple-error-text">
-                            <i class="bi bi-exclamation-circle-fill me-1"></i> {{ $message }}
+                            <i class="bi bi-exclamation-circle-fill me-1"></i> {{ $errors->register->first('documento') }}
                         </span>
-                    @enderror
+                    @endif
                 </div>
 
                 <div class="mb-3">
                     <label class="apple-label">Correo</label>
                     <input type="email" 
                            name="email" 
-                           value="{{ old('name') ? old('email') : '' }}" 
-                           class="form-control apple-input {{ $errors->has('name') && $errors->has('email') ? 'apple-input-error' : '' }}" 
+                           value="{{ $hasRegisterErrors ? old('email') : '' }}" 
+                           class="form-control apple-input {{ $errors->register->has('email') ? 'apple-input-error' : '' }}" 
                            placeholder="nombre@ejemplo.com">
                     
-                    @if($errors->has('email') && $errors->has('name'))
+                    @if($errors->register->has('email'))
                         <span class="apple-error-text">
-                            <i class="bi bi-exclamation-circle-fill me-1"></i> {{ $errors->first('email') }}
+                            <i class="bi bi-exclamation-circle-fill me-1"></i> {{ $errors->register->first('email') }}
                         </span>
                     @endif
                 </div>
@@ -132,12 +140,12 @@
                     <label class="apple-label">Contraseña</label>
                     <input type="password" 
                            name="password" 
-                           class="form-control apple-input {{ $errors->has('name') && $errors->has('password') ? 'apple-input-error' : '' }}" 
+                           class="form-control apple-input {{ $errors->register->has('password') ? 'apple-input-error' : '' }}" 
                            placeholder="Mínimo 8 caracteres">
                     
-                    @if($errors->has('password') && $errors->has('name'))
+                    @if($errors->register->has('password'))
                         <span class="apple-error-text">
-                            <i class="bi bi-exclamation-circle-fill me-1"></i> {{ $errors->first('password') }}
+                            <i class="bi bi-exclamation-circle-fill me-1"></i> {{ $errors->register->first('password') }}
                         </span>
                     @endif
                 </div>
@@ -165,6 +173,7 @@
     </div>
   </div>
 </div>
+
 <script src="{{ asset('js/carrito.js') }}"></script>
 <script src="{{ asset('vendor/js/bootstrap.bundle.min.js') }}"></script>
 
@@ -175,7 +184,6 @@
     function mostrarRegistro() {
         document.getElementById('loginForm').style.display = 'none';
         document.getElementById('registerForm').style.display = 'block';
-        // Usamos 'Crear cuenta' o 'Registrarse' en perfecta sincronía con el Blade
         document.getElementById('modalTitle').innerText = 'Crear cuenta';
     }
 
@@ -189,11 +197,10 @@
     }
 </script> 
 
-{{-- Si Laravel detecta errores de validación, disparamos la apertura automática --}}
-@if($errors->any())
+{{-- Desplegamos el modal automáticamente al recargar solo si corresponde a Auth --}}
+@if($showAuthModal)
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        // Inicializamos y mostramos tu modal de Bootstrap 'loginModal'
         var myModal = new bootstrap.Modal(document.getElementById('loginModal'));
         myModal.show();
     });

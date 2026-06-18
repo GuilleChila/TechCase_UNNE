@@ -1691,3 +1691,118 @@ select,
     transform: rotate(180deg);
     color: #1d1d1f;
 }
+/* ==========================================================================
+   SECCIÓN: PERFIL DE USUARIO (TechCase Premium Account)
+   ========================================================================== */
+
+.profile-form {
+    margin-top: 20px;
+}
+
+.profile-field-group {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 16px;
+}
+
+/* Distribución de columnas (Etiqueta izq - Input der) */
+.profile-field-label {
+    width: 35%;
+    font-size: 14px;
+    color: #86868b;
+    padding-top: 8px;
+    font-weight: 400;
+}
+
+.profile-field-input-block {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Inputs con estética Apple minimalista */
+.apple-profile-input {
+    background-color: #f5f5f7;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #1d1d1f;
+    transition: all 0.2s ease-in-out;
+    outline: none;
+    width: 100%;
+}
+
+.apple-profile-input:focus {
+    border-color: #0071e3 !important;
+    background-color: #fff !important;
+    box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.15) !important;
+}
+
+/* Campo inmutable (DNI protegido sin fondo) */
+.apple-profile-input.input-disabled-state {
+    background-color: transparent;
+    border-color: transparent;
+    font-weight: 500;
+    cursor: not-allowed;
+    padding-left: 12px;
+}
+
+/* Control visual de errores de validación */
+.apple-profile-input.input-error-state {
+    border-color: #ff3b30 !important;
+    background-color: #fff1f0 !important;
+}
+
+.profile-error-message {
+    color: #ff3b30;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+/* Separadores internos sutiles */
+.profile-divider {
+    border: 0;
+    border-top: 1px solid #e5e5e7;
+    margin: 24px 0;
+}
+
+.profile-section-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #1d1d1f;
+}
+
+/* Bloque de botón guardar */
+.profile-action-block {
+    text-align: right;
+    margin-top: 24px;
+}
+
+.apple-profile-submit {
+    background-color: #0071e3 !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 20px !important;
+    padding: 8px 20px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    cursor: pointer;
+    transition: all 0.2s ease !important;
+}
+
+.apple-profile-submit:hover {
+    background-color: #0077ed !important;
+    transform: scale(1.02);
+}
+
+.apple-profile-submit:active {
+    transform: scale(0.98);
+}
+
+.apple-alert-profile {
+    border-radius: 12px;
+    font-size: 14px;
+    padding: 12px 16px;
+}

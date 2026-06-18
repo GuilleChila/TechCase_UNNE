@@ -7,9 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class RegistroRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
+    protected $errorBag = 'register';
     public function authorize(): bool
     {
         return true;
@@ -35,6 +33,7 @@ class RegistroRequest extends FormRequest
         'name.max' => 'Máximo de 150 caracteres.',
         'documento.required' => 'Este campo es obligatorio.',
         'documento.size' => 'El DNI debe tener exactamente 8 digitos.',
+        'email.unique' => 'Este correo electrónico ya está registrado por otro usuario.',
         'email.required' => 'Este campo es obligatorio.',
         'email.email' => 'Por favor, ingresá una dirección de correo válida.',
         'password.required' => 'Este campo es obligatorio.',

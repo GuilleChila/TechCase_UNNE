@@ -13,11 +13,12 @@ class AuthController extends Controller
 {
     public function login(LoginRequest $request)
     {
+        // Si llega acá, es porque LoginRequest ya validó los campos en la bolsa 'login'
         $datosValidados = $request->validated();
 
         $credenciales = [
             'correo'   => $datosValidados['email'],
-            'password' => $datosValidados['password'], // Auth::attempt intercepta 'password' automáticamente para verificar contra el Hash
+            'password' => $datosValidados['password'], 
         ];
 
         if (Auth::attempt($credenciales)) {
@@ -27,18 +28,18 @@ class AuthController extends Controller
             // Obtenemos el objeto del usuario que acaba de loguearse
             $usuarioLogueado = Auth::user();
 
-            // 4. Redirección inteligente según PerfilSeeder:
+            // Redirección inteligente según PerfilSeeder:
             if ($usuarioLogueado->perfil_id == 2) { 
                 return redirect()->route('admin.index')->with('success', '¡Bienvenido al Panel de Administración!');
             }
             
             return redirect()->route('principal')->with('success', '¡Sesión iniciada con éxito! Disfrutá de TechCase.');
-        } // <-- ESTA LLAVE RECIÉN CIERRA EL INTENTO DE LOGIN EXITOSO
+        } 
 
-        // 5. Si las credenciales fallan, volvemos atrás inyectando el error en el modal (AFUERA del if anterior)
+        // Si las credenciales fallan manualmente (auth erróneo), inyectamos el error ESPECÍFICAMENTE en la bolsa 'login'
         return back()->withErrors([
             'email' => 'El correo electrónico o la contraseña son incorrectos.',
-        ])->onlyInput('email');
+        ], 'login')->withInput($request->only('email'));
     } // <-- ACÁ CIERRA CORRECTAMENTE TU FUNCIÓN LOGIN
 
     public function register(RegistroRequest $request)
