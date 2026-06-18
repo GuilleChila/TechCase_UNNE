@@ -84,20 +84,6 @@ public function mostrarResumen()
         // 3. Pasar el usuario a la vista usando compact()
         return view('resumen-compra', compact('user'));
     }
-public function mostrarPerfil()
-{
-    // Obtenemos el usuario autenticado
-    $usuario = auth()->user();
-
-    // Filtramos los carritos pertenecientes a este usuario traídos de la DB
-    // Usamos eager loading 'with' para cargar los productos y optimizar las consultas
-    $compras = Carrito::where('usuario_id', $usuario->id)
-                      ->with('productos')
-                      ->orderBy('created_at', 'desc')
-                      ->get();
-
-    return view('perfil-cliente', compact('usuario', 'compras'));
-}
     /**
      * Display a listing of the resource.
      */

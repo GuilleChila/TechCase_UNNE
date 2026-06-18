@@ -9,6 +9,7 @@ use App\Http\Controllers\ConsultaController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CarritoController;
+use App\Http\Controllers\PerfilController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -85,5 +86,11 @@ Route::post('/carrito/finalizar', [CarritoController::class, 'finalizarCompra'])
 Route::get('/carrito/resumen', [CarritoController::class, 'mostrarResumen'])->name('carrito.resumen')->middleware('auth');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/mi-perfil', [CarritoController::class, 'mostrarPerfil'])->name('cliente.perfil');
+    
+    // 1. Ruta para MOSTRAR la vista (Mantiene tu URL y tu name exacto para no romper los enlaces del sitio)
+    Route::get('/mi-perfil', [PerfilController::class, 'index'])->name('cliente.perfil');
+
+    // 2. NUEVA Ruta para PROCESAR el formulario de actualización
+    Route::put('/mi-perfil/actualizar', [PerfilController::class, 'update'])->name('perfil.update');
+    
 });
